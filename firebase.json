@@ -1,0 +1,7 @@
+{
+  "hosting": {
+    "site": "keyboard-informaition",
+    "public": "public",
+    "ignore": ["firebase.json", "**/.*", "**/node_modules/**"]
+  }
+}

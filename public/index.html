@@ -1,89 +1,341 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Welcome to Firebase Hosting</title>
+<html lang="en">
 
-    <!-- update the version number as needed -->
-    <script defer src="/__/firebase/11.0.2/firebase-app-compat.js"></script>
-    <!-- include only the Firebase features as you need -->
-    <script defer src="/__/firebase/11.0.2/firebase-auth-compat.js"></script>
-    <script defer src="/__/firebase/11.0.2/firebase-database-compat.js"></script>
-    <script defer src="/__/firebase/11.0.2/firebase-firestore-compat.js"></script>
-    <script defer src="/__/firebase/11.0.2/firebase-functions-compat.js"></script>
-    <script defer src="/__/firebase/11.0.2/firebase-messaging-compat.js"></script>
-    <script defer src="/__/firebase/11.0.2/firebase-storage-compat.js"></script>
-    <script defer src="/__/firebase/11.0.2/firebase-analytics-compat.js"></script>
-    <script defer src="/__/firebase/11.0.2/firebase-remote-config-compat.js"></script>
-    <script defer src="/__/firebase/11.0.2/firebase-performance-compat.js"></script>
-    <!-- 
-      initialize the SDK after all desired features are loaded, set useEmulator to false
-      to avoid connecting the SDK to running emulators.
-    -->
-    <script defer src="/__/firebase/init.js?useEmulator=true"></script>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Keyboard Types</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" />
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: Arial, sans-serif;
+    }
 
-    <style media="screen">
-      body { background: #ECEFF1; color: rgba(0,0,0,0.87); font-family: Roboto, Helvetica, Arial, sans-serif; margin: 0; padding: 0; }
-      #message { background: white; max-width: 360px; margin: 100px auto 16px; padding: 32px 24px; border-radius: 3px; }
-      #message h2 { color: #ffa100; font-weight: bold; font-size: 16px; margin: 0 0 8px; }
-      #message h1 { font-size: 22px; font-weight: 300; color: rgba(0,0,0,0.6); margin: 0 0 16px;}
-      #message p { line-height: 140%; margin: 16px 0 24px; font-size: 14px; }
-      #message a { display: block; text-align: center; background: #039be5; text-transform: uppercase; text-decoration: none; color: white; padding: 16px; border-radius: 4px; }
-      #message, #message a { box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24); }
-      #load { color: rgba(0,0,0,0.4); text-align: center; font-size: 13px; }
-      @media (max-width: 600px) {
-        body, #message { margin-top: 0; background: white; box-shadow: none; }
-        body { border-top: 16px solid #ffa100; }
-      }
-    </style>
-  </head>
-  <body>
-    <div id="message">
-      <h2>Welcome</h2>
-      <h1>Firebase Hosting Setup Complete</h1>
-      <p>You're seeing this because you've successfully setup Firebase Hosting. Now it's time to go build something extraordinary!</p>
-      <a target="_blank" href="https://firebase.google.com/docs/hosting/">Open Hosting Documentation</a>
+    body {
+      background-color: black;
+      color: white;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    header {
+      background: url("https://www.man-machine.com/wp-content/uploads/2015/05/dcool-backlight-left.jpg") no-repeat center center/cover;
+      padding: 60px;
+      width: 100%;
+      height: 180%;
+      text-align: center;
+      color: #ffffff;
+      border-radius: 5px;
+    }
+
+    header h1 {
+      font-size: 3em;
+      margin-bottom: 20px;
+    }
+
+    header p {
+      font-size: 1.2em;
+      color: #dddddd;
+    }
+
+    .section {
+      width: 90%;
+      max-width: 1000px;
+      padding: 20px;
+      background-color: #1a1a1a;
+      /* Darker background */
+      margin: 20px 0;
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+      transition: transform 0.3s;
+      color: #b0b0b0;
+      /* Light gray text color */
+    }
+
+    .section-content {
+      flex: 1;
+      color: #b0b0b0;
+      text-align: left;
+    }
+
+    .section-content h2 {
+      font-size: 1.8em;
+      font-weight: bold;
+      color: white;
+      margin-bottom: 10px;
+    }
+
+    .section-content p {
+      color: #d0d0d0;
+      font-size: 1em;
+    }
+
+    .section img {
+      width: 50%;
+      height: auto;
+      border-radius: 10px;
+    }
+
+    .section:hover {
+      transform: scale(1.05);
+      background-color: #333;
+    }
+
+    footer {
+      background-color: #1f1f1f;
+      width: 100%;
+      padding: 20px;
+      text-align: center;
+      font-size: 1em;
+      color: #00e5ff;
+    }
+
+    .product {
+      background-color: #444;
+      padding: 20px;
+      margin: 10px;
+      text-align: center;
+      border-radius: 10px;
+      transition: transform 0.3s;
+      display: flex;
+      justify-content: space-evenly;
+      flex-direction: column;
+    }
+
+    .product img {
+      width: 294px;
+      height: auto;
+      margin-bottom: 10px;
+    }
+
+    .product:hover {
+      transform: scale(1.05);
+      background-color: #555;
+    }
+
+    .cta {
+      background-color: #ff4081;
+      padding: 10px 30px;
+      font-size: 1.5em;
+      color: white;
+      border-radius: 10px;
+      text-align: center;
+      cursor: pointer;
+    }
+
+    nav {
+      justify-content: space-between;
+      display: flex;
+      width: 100%;
+    }
+
+    .navbar-nav .login-button {
+      background-color: yellow;
+      color: black;
+      padding: 5px 15px;
+      border-radius: 5px;
+      font-weight: bold;
+      text-transform: uppercase;
+      transition: transform 0.3s, background-color 0.3s;
+    }
+
+    .navbar-nav .login-button:hover {
+      transform: scale(1.1);
+      background-color: gold;
+    }
+  </style>
+</head>
+
+<body>
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#">Keyboard Types</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item"><a class="nav-link" href="#">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="#">About</a></li>
+          <li class="nav-item"><a class="nav-link" href="#">Options</a></li>
+          <li class="nav-item"><a class="nav-link" href="#">Others</a></li>
+          <li class="nav-item"><a class="nav-link" href="#">Help</a></li>
+          <li class="nav-item">
+            <a class="nav-link login-button" href="login.html">Login</a>
+          </li>
+        </ul>
+      </div>
     </div>
-    <p id="load">Firebase SDK Loading&hellip;</p>
+  </nav>
 
-    <script>
-      document.addEventListener('DOMContentLoaded', function() {
-        const loadEl = document.querySelector('#load');
-        // // 🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥
-        // // The Firebase SDK is initialized and available here!
-        //
-        // firebase.auth().onAuthStateChanged(user => { });
-        // firebase.database().ref('/path/to/ref').on('value', snapshot => { });
-        // firebase.firestore().doc('/foo/bar').get().then(() => { });
-        // firebase.functions().httpsCallable('yourFunction')().then(() => { });
-        // firebase.messaging().requestPermission().then(() => { });
-        // firebase.storage().ref('/path/to/ref').getDownloadURL().then(() => { });
-        // firebase.analytics(); // call to activate
-        // firebase.analytics().logEvent('tutorial_completed');
-        // firebase.performance(); // call to activate
-        //
-        // // 🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥
+  <header>
+    <h1>All About Keyboards</h1>
+    <p>
+      Keyboards come in various styles, each catering to different user
+      preferences and needs. Each type has its unique advantages, making the
+      choice largely dependent on personal preference and specific use cases.
+    </p>
+    <p>
+      Explore the different types of keyboards: Chicklet, Membrane, and
+      Mechanical.
+    </p>
+  </header>
 
-        try {
-          let app = firebase.app();
-          let features = [
-            'auth', 
-            'database', 
-            'firestore',
-            'functions',
-            'messaging', 
-            'storage', 
-            'analytics', 
-            'remoteConfig',
-            'performance',
-          ].filter(feature => typeof app[feature] === 'function');
-          loadEl.textContent = `Firebase SDK loaded with ${features.join(', ')}`;
-        } catch (e) {
-          console.error(e);
-          loadEl.textContent = 'Error loading the Firebase SDK, check the console.';
-        }
-      });
-    </script>
-  </body>
+  <div class="section">
+    <div class="section-content">
+      <h2>Chicklet Keyboard</h2>
+      <p>
+        Chicklet keyboards are known for their flat, square-shaped keys with a
+        low profile. They're commonly used in laptops and are known for being
+        slim and quiet.
+      </p>
+    </div>
+    <img src="https://laptop88.vn/media/news/0701_btnbnphmlaptopDellInspiron153000.jpg" alt="Chicklet Keyboard" />
+  </div>
+
+  <div class="section">
+    <div class="section-content">
+      <h2>Membrane Keyboard</h2>
+      <p>
+        Membrane keyboards use a thin, flexible membrane layer under the keys.
+        They're affordable and provide a soft typing experience but may lack
+        tactile feedback.
+      </p>
+    </div>
+    <img src="https://m.media-amazon.com/images/I/71++7qReFrL._AC_UF1000,1000_QL80_.jpg" alt="Membrane Keyboard" />
+  </div>
+
+  <div class="section">
+    <div class="section-content">
+      <h2>Mechanical Keyboard</h2>
+      <p>
+        Mechanical keyboards are popular for their durable switches and
+        tactile feedback. They offer various switch types catering to
+        different preferences.
+      </p>
+    </div>
+    <img src="https://preview.redd.it/q821sgp964o81.jpg?auto=webp&s=ce5f26c8719c367d954b393cf91c9d22f005a1b0"
+      alt="Mechanical Keyboard" />
+  </div>
+
+  <div>
+    <p>
+      Thank you for reading! I hope you now know which type of keyboard will
+      be suitable for your needs.
+    </p>
+    <p>Here are some recommended keyboards to buy:</p>
+    <div class="d-flex justify-content-center flex-wrap">
+      <div class="product">
+        <img
+          src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT6SlXFImcENkWDJ78D2lJPyVXdSD5qXojD-6ZGKga3385lPP4WUJHQRVzj4nOnAI7sr34&usqp=CAU"
+          alt="Arrango Compact Keyboard" />
+        <div class="product-details">
+          <h3>Arrango Compact</h3>
+          <p>Price: $9</p>
+          <a href="https://wholesale.pimoroni.com/products/wired-slim-chiclet-keyboard" class="cta">Buy Now</a>
+        </div>
+      </div>
+      <div class="product">
+        <img src="https://cdn.mos.cms.futurecdn.net/RcPeJVziNWif3pDd2XTQBb.jpg" alt="Carnotaurus 7881 Keyboard" />
+        <div class="product-details">
+          <h3>Carnotaurus 7881</h3>
+          <p>Price: $18</p>
+          <a href="https://wholesale.pimoroni.com/products/wired-slim-chiclet-keyboard" class="cta">Buy Now</a>
+        </div>
+      </div>
+      <div class="product">
+        <img src="https://www.popsci.com/wp-content/uploads/2022/02/12/mechanical-keyboard-with-rbg.jpg"
+          alt="Angorayer80 Keyboard" />
+        <div class="product-details">
+          <h3>Angorayer80</h3>
+          <p>Price: $75</p>
+          <a href="https://wholesale.pimoroni.com/products/wired-slim-chiclet-keyboard" class="cta">Buy Now</a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="container">
+    <footer class="row row-cols-1 row-cols-sm-2 row-cols-md-5 py-5 my-5 border-top">
+      <div class="col mb-3">
+        <p class="text-light-emphasis">Keyboard Types © 2024</p>
+      </div>
+
+      <div class="col mb-3"></div>
+
+      <div class="col mb-3">
+        <h5>Section</h5>
+        <ul class="nav flex-column">
+          <li class="nav-item mb-2">
+            <a href="#" class="nav-link p-0 text-light-emphasis">Home</a>
+          </li>
+          <li class="nav-item mb-2">
+            <a href="#" class="nav-link p-0 text-light-emphasis">Features</a>
+          </li>
+          <li class="nav-item mb-2">
+            <a href="#" class="nav-link p-0 text-light-emphasis">Pricing</a>
+          </li>
+          <li class="nav-item mb-2">
+            <a href="#" class="nav-link p-0 text-light-emphasis">FAQs</a>
+          </li>
+          <li class="nav-item mb-2">
+            <a href="#" class="nav-link p-0 text-light-emphasis">About</a>
+          </li>
+        </ul>
+      </div>
+
+      <div class="col mb-3">
+        <h5>Section</h5>
+        <ul class="nav flex-column">
+          <li class="nav-item mb-2">
+            <a href="#" class="nav-link p-0 text-light-emphasis">Home</a>
+          </li>
+          <li class="nav-item mb-2">
+            <a href="#" class="nav-link p-0 text-light-emphasis">Features</a>
+          </li>
+          <li class="nav-item mb-2">
+            <a href="#" class="nav-link p-0 text-light-emphasis">Pricing</a>
+          </li>
+          <li class="nav-item mb-2">
+            <a href="#" class="nav-link p-0 text-light-emphasis">FAQs</a>
+          </li>
+          <li class="nav-item mb-2">
+            <a href="#" class="nav-link p-0 text-light-emphasis">About</a>
+          </li>
+        </ul>
+      </div>
+
+      <div class="col mb-3">
+        <h5>Section</h5>
+        <ul class="nav flex-column">
+          <li class="nav-item mb-2">
+            <a href="#" class="nav-link p-0 text-light-emphasis">Home</a>
+          </li>
+          <li class="nav-item mb-2">
+            <a href="#" class="nav-link p-0 text-light-emphasis">Features</a>
+          </li>
+          <li class="nav-item mb-2">
+            <a href="#" class="nav-link p-0 text-light-emphasis">Pricing</a>
+          </li>
+          <li class="nav-item mb-2">
+            <a href="#" class="nav-link p-0 text-light-emphasis">FAQs</a>
+          </li>
+          <li class="nav-item mb-2">
+            <a href="#" class="nav-link p-0 text-light-emphasis">About</a>
+          </li>
+        </ul>
+      </div>
+    </footer>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
 </html>

@@ -35,12 +35,25 @@
         border-radius: 5px;
       }
 
+      @keyframes glowing {
+        from {
+          background-color: #ff0000; /* Start with red */
+        }
+        to {
+          background-color: #0000ff; /* End with blue */
+        }
+      }
+
       header h1 {
+        font-family: "Segoe UI Black", sans-serif; /* Title with Segoe UI Black */
         font-size: 3em;
         margin-bottom: 20px;
+        color: #ffd700; /* Light yellow color */
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3); /* Add slight shadow */
       }
 
       header p {
+        font-family: Callibri, sans-serif; /* Callibri font for description */
         font-size: 1.2em;
         color: #dddddd;
       }
@@ -179,6 +192,10 @@
             <li class="nav-item"><a class="nav-link" href="#">Help</a></li>
             <li class="nav-item">
               <a class="nav-link login-button" href="login.html">Login</a>
+            </li>
+
+            <li class="nav-item">
+              <a class="nav-link login-button" href="register.html">Register</a>
             </li>
           </ul>
         </div>

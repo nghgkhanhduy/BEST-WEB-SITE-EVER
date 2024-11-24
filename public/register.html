@@ -1,175 +1,194 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Register</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link
+      href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
+      rel="stylesheet"
+    />
     <style>
-        .wrapper {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+      .wrapper {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
 
-        body {
-            background: url('https://imgs.search.brave.com/DD2KDoXfZT9nxCrUVKTtvzcoChduXzLziJCcvTc4hhE/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9pbWcu/ZnJlZXBpay5jb20v/cHJlbWl1bS1waG90/by9vbGQtYmxhY2st/YmFja2dyb3VuZC1n/cnVuZ2UtdGV4dHVy/ZS1kYXJrLXdhbGxw/YXBlci1ibGFja2Jv/YXJkLWNoYWxrYm9h/cmQtcm9vbS13YWxs/XzEyNTgtMjgzMTMu/anBnP3NlbXQ9YWlz/X2h5YnJpZA');
-            background-size: cover;
-            font-family: Arial, sans-serif;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-        }
+      body {
+        background: url("https://imgs.search.brave.com/DD2KDoXfZT9nxCrUVKTtvzcoChduXzLziJCcvTc4hhE/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9pbWcu/ZnJlZXBpay5jb20v/cHJlbWl1bS1waG90/by9vbGQtYmxhY2st/YmFja2dyb3VuZC1n/cnVuZ2UtdGV4dHVy/ZS1kYXJrLXdhbGxw/YXBlci1ibGFja2Jv/YXJkLWNoYWxrYm9h/cmQtcm9vbS13YWxs/XzEyNTgtMjgzMTMu/anBnP3NlbXQ9YWlz/X2h5YnJpZA");
+        background-size: cover;
+        font-family: Arial, sans-serif;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+      }
 
-        .wrapper {
-            max-width: 525px;
-            margin: 0 auto;
-            padding: 30px;
-            background-color: rgba(0, 0, 0, 0.7);
-            border-radius: 20px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
-            color: #fff;
-        }
+      .wrapper {
+        max-width: 525px;
+        margin: 0 auto;
+        padding: 30px;
+        background-color: rgba(0, 0, 0, 0.7);
+        border-radius: 20px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+        color: #fff;
+      }
 
-        .wrapper h1 {
-            text-align: center;
-            margin-bottom: 20px;
-        }
+      .wrapper h1 {
+        text-align: center;
+        margin-bottom: 20px;
+      }
 
-        .input-box {
-            position: relative;
-            margin-bottom: 15px;
-        }
+      .input-box {
+        position: relative;
+        margin-bottom: 15px;
+      }
 
-        .input-box input {
-            width: 100%;
-            padding: 10px;
-            border: rgb(253, 253, 253);
-            background-color: rgba(255, 255, 255, 0.1);
-            color: #fff;
-            border-radius: 5px;
-            outline: none;
-        }
+      .input-box input {
+        width: 100%;
+        padding: 10px;
+        border: rgb(253, 253, 253);
+        background-color: rgba(255, 255, 255, 0.1);
+        color: #fff;
+        border-radius: 5px;
+        outline: none;
+      }
 
-        .input-box i {
-            position: absolute;
-            top: 50%;
-            right: 10px;
-            transform: translateY(-50%);
-            color: #fff;
-        }
+      .input-box i {
+        position: absolute;
+        top: 50%;
+        right: 10px;
+        transform: translateY(-50%);
+        color: #fff;
+      }
 
-        .btn {
-            width: 100%;
-            padding: 10px;
-            background-color: #ff9800;
-            border: none;
-            color: #fff;
-            font-weight: bold;
-            border-radius: 5px;
-            cursor: pointer;
-            transition: background-color 0.3s, transform 0.3s;
-        }
+      .btn {
+        width: 100%;
+        padding: 10px;
+        background-color: #ff9800;
+        border: none;
+        color: #fff;
+        font-weight: bold;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: background-color 0.3s, transform 0.3s;
+      }
 
-        .btn:hover {
-            background-color: #f57c00;
-        }
+      .btn:hover {
+        background-color: #f57c00;
+      }
 
-        .register-link {
-            text-align: center;
-            margin-top: 15px;
-        }
+      .register-link {
+        text-align: center;
+        margin-top: 15px;
+      }
 
-        .register-link a {
-            color: #ff9800;
-            text-decoration: none;
-        }
+      .register-link a {
+        color: #ff9800;
+        text-decoration: none;
+      }
 
-        .register-link a:hover {
-            text-decoration: underline;
-        }
+      .register-link a:hover {
+        text-decoration: underline;
+      }
     </style>
-</head>
-<body>
+  </head>
+  <body>
     <div class="wrapper">
-        <form id="registerForm" action="" method="post">
-            <h1>REGISTER</h1>
-            <h6>By Nguyễn Hoàng Khánh Duy</h6>
-            <div class="input-box">
-                <input type="text" id="username" placeholder="Username" required>
-                <i class='bx bxs-user-rectangle'></i>
-            </div>
-            <div class="input-box">
-                <input type="email" id="email" placeholder="Email" required>
-                <i class='bx bxs-envelope'></i>
-            </div>
-            <div class="input-box">
-                <input type="password" id="password" placeholder="Password" required>
-                <i class='bx bxs-lock'></i>
-            </div>
-            <div class="input-box">
-                <input type="password" id="confirmPassword" placeholder="Confirm Password" required>
-                <i class='bx bxs-lock'></i>
-            </div>
-            <button type="submit" class="btn register-btn">Register</button>
-            <div class="register-link">
-                <p>Already have an account? <a href="login.html">Login</a></p>
-            </div>
-        </form>
+      <form id="registerForm" action="" method="post">
+        <h1>REGISTER</h1>
+        <h6>By Nguyễn Hoàng Khánh Duy</h6>
+        <div class="input-box">
+          <input type="text" id="username" placeholder="Username" required />
+          <i class="bx bxs-user-rectangle"></i>
+        </div>
+        <div class="input-box">
+          <input type="email" id="email" placeholder="Email" required />
+          <i class="bx bxs-envelope"></i>
+        </div>
+        <div class="input-box">
+          <input
+            type="password"
+            id="password"
+            placeholder="Password"
+            required
+          />
+          <i class="bx bxs-lock"></i>
+        </div>
+        <div class="input-box">
+          <input
+            type="password"
+            id="confirmPassword"
+            placeholder="Confirm Password"
+            required
+          />
+          <i class="bx bxs-lock"></i>
+        </div>
+        <button type="submit" class="btn register-btn">Register</button>
+        <div class="register-link">
+          <p>Already have an account? <a href="#">Login</a></p>
+        </div>
+      </form>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <script>
-        document.querySelector('.register-btn').addEventListener('mouseover', function() {
-            this.style.transform = 'scale(1.1)';
-            this.style.fontWeight = 'bold';
+      document
+        .querySelector(".register-btn")
+        .addEventListener("mouseover", function () {
+          this.style.transform = "scale(1.1)";
+          this.style.fontWeight = "bold";
         });
-        document.querySelector('.register-btn').addEventListener('mouseout', function() {
-            this.style.transform = 'scale(1)';
-            this.style.fontWeight = 'normal';
+      document
+        .querySelector(".register-btn")
+        .addEventListener("mouseout", function () {
+          this.style.transform = "scale(1)";
+          this.style.fontWeight = "normal";
         });
 
-        document.getElementById('registerForm').addEventListener('submit', function(event) {
-            event.preventDefault();
+      document
+        .getElementById("registerForm")
+        .addEventListener("submit", function (event) {
+          event.preventDefault();
 
-            
-            const username = document.getElementById('username').value;
-            const email = document.getElementById('email').value;
-            const password = document.getElementById('password').value;
-            const confirmPassword = document.getElementById('confirmPassword').value;
+          const username = document.getElementById("username").value;
+          const email = document.getElementById("email").value;
+          const password = document.getElementById("password").value;
+          const confirmPassword =
+            document.getElementById("confirmPassword").value;
 
-            
-            const usernameValid = username.length >= 6 && username.length <= 18;
-            const emailValid = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
-            const passwordValid = password.length >= 6 && password.length <= 18;
-            const passwordsMatch = password === confirmPassword;
+          const usernameValid = username.length >= 6 && username.length <= 18;
+          const emailValid = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+          const passwordValid = password.length >= 6 && password.length <= 18;
+          const passwordsMatch = password === confirmPassword;
 
-            
-            if (!usernameValid) {
-                alert("Username must be between 6 and 18 characters.");
-                return;
-            }
+          if (!usernameValid) {
+            alert("Username must be between 6 and 18 characters.");
+            return;
+          }
 
-            if (!emailValid) {
-                alert("Please enter a valid email address.");
-                return;
-            }
+          if (!emailValid) {
+            alert("Please enter a valid email address.");
+            return;
+          }
 
-            if (!passwordValid) {
-                alert("Password must be between 6 and 18 characters.");
-                return;
-            }
+          if (!passwordValid) {
+            alert("Password must be between 6 and 18 characters.");
+            return;
+          }
 
-            if (!passwordsMatch) {
-                alert("Passwords do not match.");
-                return;
-            }
+          if (!passwordsMatch) {
+            alert("Passwords do not match.");
+            return;
+          }
 
-            
-            alert("Registration successful!");
-            window.location.href = "index.html";
+          alert("Registration successful!");
+          window.location.href = "index.html";
         });
     </script>
-</body>
+  </body>
 </html>

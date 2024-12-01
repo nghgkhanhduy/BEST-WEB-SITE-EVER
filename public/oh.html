@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Keyboard Types</title>
+    <title>𝗧𝗬𝗣𝗘𝗦 𝗢𝗙 𝗞𝗘𝗬𝗕𝗢𝗔𝗥𝗗</title>
     <link
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
@@ -23,39 +23,70 @@
         flex-direction: column;
         align-items: center;
       }
-
       header {
-        background: url("https://www.man-machine.com/wp-content/uploads/2015/05/dcool-backlight-left.jpg")
+        background: url("https://upgradekeyboards.com/cdn/shop/products/rk61-rgb1_1000x.jpg?v=1652824375")
           no-repeat center center/cover;
         padding: 60px;
         width: 100%;
-        height: 180%;
+        height: auto;
         text-align: center;
         color: #ffffff;
         border-radius: 5px;
       }
 
-      @keyframes glowing {
-        from {
-          background-color: #ff0000; /* Start with red */
+      @keyframes glowing-title {
+        0% {
+          color: rgb(255, 0, 0);
         }
-        to {
-          background-color: #0000ff; /* End with blue */
+        25% {
+          color: rgb(0, 255, 0);
+        }
+        50% {
+          color: rgb(0, 0, 255);
+        }
+        75% {
+          color: rgb(255, 255, 0);
+        }
+        100% {
+          color: rgb(255, 0, 0);
+        }
+      }
+
+      @keyframes glowing-stroke {
+        0% {
+          text-shadow: 0 0 5px rgb(255, 0, 0), 0 0 3px rgb(255, 0, 0),
+            0 0 3px rgb(255, 0, 0), 0 0 3px rgb(255, 0, 0);
+        }
+        25% {
+          text-shadow: 0 0 5px rgb(0, 255, 0), 0 0 3px rgb(0, 255, 0),
+            0 0 3px rgb(0, 255, 0), 0 0 3px rgb(0, 255, 0);
+        }
+        50% {
+          text-shadow: 0 0 5px rgb(0, 0, 255), 0 0 3px rgb(0, 0, 255),
+            0 0 3px rgb(0, 0, 255), 0 0 3px rgb(0, 0, 255);
+        }
+        75% {
+          text-shadow: 0 0 5px rgb(255, 100, 0), 0 0 3px rgb(255, 100, 0),
+            0 0 3px rgb(255, 100, 0), 0 0 3px rgb(255, 100, 0);
+        }
+        100% {
+          text-shadow: 0 0 5px rgb(255, 0, 0), 0 0 3px rgb(255, 0, 0),
+            0 0 3px rgb(255, 0, 0), 0 0 3px rgb(255, 0, 0);
         }
       }
 
       header h1 {
-        font-family: "Segoe UI Black", sans-serif; /* Title with Segoe UI Black */
+        font-family: 'Segoe UI Black';
         font-size: 3em;
         margin-bottom: 20px;
-        color: #ffd700; /* Light yellow color */
-        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3); /* Add slight shadow */
+        animation: glowing-title 3s infinite;
       }
 
       header p {
-        font-family: Callibri, sans-serif; /* Callibri font for description */
+        font-family: Arial, sans-serif;
         font-size: 1.2em;
         color: #dddddd;
+        animation: glowing-stroke 5s infinite;
       }
 
       .section {
@@ -171,7 +202,7 @@
   <body>
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
       <div class="container-fluid">
-        <a class="navbar-brand" href="#">Keyboard Types</a>
+        <a class="navbar-brand" href="#">𝗧𝗬𝗣𝗘𝗦 𝗢𝗙 𝗞𝗘𝗬𝗕𝗢𝗔𝗥𝗗</a>
         <button
           class="navbar-toggler"
           type="button"
@@ -203,23 +234,26 @@
     </nav>
 
     <header>
-      <h1>All About Keyboards</h1>
+      <p> ​</p>
+      <h1>ALL ABOUT PHYSICAL KEYBOARD</h1>
+      <p> ​</p>
       <p>
         Keyboards come in various styles, each catering to different user
-        preferences and needs. Each type has its unique advantages, making the
-        choice largely dependent on personal preference and specific use cases.
+        preferences<p> and needs.Each type has its unique advantages, making the
+        choice largely </p> <p>dependent on personal preference and specific use cases.
       </p>
       <p>
         Explore the different types of keyboards: Chicklet, Membrane, and
         Mechanical.
       </p>
+      <p> ​</p>
     </header>
 
     <div class="section">
       <div class="section-content">
-        <h2>Chicklet Keyboard</h2>
+        <h2>𝗖𝗵𝗶𝗰𝗹𝗲𝘁 Keyboard</h2>
         <p>
-          Chicklet keyboards are known for their flat, square-shaped keys with a
+          Chiclet keyboards are known for their flat, square-shaped keys with a
           low profile. They're commonly used in laptops and are known for being
           slim and quiet.
         </p>
@@ -232,7 +266,7 @@
 
     <div class="section">
       <div class="section-content">
-        <h2>Membrane Keyboard</h2>
+        <h2>𝕸𝖊𝖒𝖇𝖗𝖆𝖓𝖊 Keyboard</h2>
         <p>
           Membrane keyboards use a thin, flexible membrane layer under the keys.
           They're affordable and provide a soft typing experience but may lack
@@ -240,18 +274,18 @@
         </p>
       </div>
       <img
-        src="https://m.media-amazon.com/images/I/71++7qReFrL._AC_UF1000,1000_QL80_.jpg"
+        src="https://imgs.search.brave.com/gS71SiLCHjaVuSGBAOiQ2cCl9VGHI5OBDdtlEHFAdWM/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9kMXEz/enc5N2VueHpxMi5j/bG91ZGZyb250Lm5l/dC9pbWFnZXMvSzU1/X1BST19MSVRFXzEx/LndpZHRoLTEwMDAu/Zm9ybWF0LXdlYnAu/d2VicA"
         alt="Membrane Keyboard"
       />
     </div>
 
     <div class="section">
       <div class="section-content">
-        <h2>Mechanical Keyboard</h2>
+        <h2>𝓜𝓮𝓬𝓱𝓪𝓷𝓲𝓬𝓪𝓵 Keyboard</h2>
         <p>
           Mechanical keyboards are popular for their durable switches and
           tactile feedback. They offer various switch types catering to
-          different preferences.
+          different preferences. However, the only downside is the prices when it ranges in larger than $50.
         </p>
       </div>
       <img
@@ -269,14 +303,14 @@
       <div class="d-flex justify-content-center flex-wrap">
         <div class="product">
           <img
-            src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT6SlXFImcENkWDJ78D2lJPyVXdSD5qXojD-6ZGKga3385lPP4WUJHQRVzj4nOnAI7sr34&usqp=CAU"
+            src="https://cdn11.bigcommerce.com/s-am5zt8xfow/images/stencil/1280x1280/products/2986/9312/apirw3tkc__71522.1554986117__56103.1659540443.jpg?c=2"
             alt="Arrango Compact Keyboard"
           />
           <div class="product-details">
             <h3>Arrango Compact</h3>
             <p>Price: $9</p>
             <a
-              href="https://wholesale.pimoroni.com/products/wired-slim-chiclet-keyboard"
+              href="https://shopee.vn/B%C3%A0n-ph%C3%ADm-mini-K1000-c%E1%BB%95ng-USB-si%C3%AAu-m%E1%BB%8Fng-ch%E1%BB%91ng-n%C6%B0%E1%BB%9Bc-ch%E1%BB%91ng-%E1%BB%93n-cho-m%C3%A1y-t%C3%ADnh-Laptop-Mini-Keyboard-i.1117257690.28608700581?sp_atk=a4b29157-c338-42d6-bd14-d84d519a34bc&xptdk=a4b29157-c338-42d6-bd14-d84d519a34bc"
               class="cta"
               >Buy Now</a
             >
@@ -284,14 +318,14 @@
         </div>
         <div class="product">
           <img
-            src="https://cdn.mos.cms.futurecdn.net/RcPeJVziNWif3pDd2XTQBb.jpg"
+            src="https://cdn.shopify.com/s/files/1/0012/4957/4961/files/Redragon_K513_Membrane_Keyboard_5.jpg?v=1693811453"
             alt="Carnotaurus 7881 Keyboard"
           />
           <div class="product-details">
-            <h3>Carnotaurus 7881</h3>
+            <h3>Carnotaurus104</h3>
             <p>Price: $18</p>
             <a
-              href="https://wholesale.pimoroni.com/products/wired-slim-chiclet-keyboard"
+              href="https://shopee.vn/B%C3%A0n-ph%C3%ADm-m%C3%A1y-t%C3%ADnh-c%C3%B3-d%C3%A2y-gaming-SIDOTECH-V4-gi%E1%BA%A3-c%C6%A1-ch%E1%BB%91ng-n%C6%B0%E1%BB%9Bc-led-rgb-ch%C6%A1i-game-l%C3%A0m-vi%E1%BB%87c-v%C4%83n-ph%C3%B2ng-cho-PC-laptop-i.268182642.20453645467?sp_atk=6781d560-cab1-49a7-99cf-20e7a54044ed&xptdk=6781d560-cab1-49a7-99cf-20e7a54044ed"
               class="cta"
               >Buy Now</a
             >
@@ -304,9 +338,9 @@
           />
           <div class="product-details">
             <h3>Angorayer80</h3>
-            <p>Price: $75</p>
+            <p>Price: $85</p>
             <a
-              href="https://wholesale.pimoroni.com/products/wired-slim-chiclet-keyboard"
+              href="https://shopee.vn/B%C3%A0n-ph%C3%ADm-c%C6%A1-AULA-f75-75-80-ph%C3%ADm-rgb-bluetooth-2.4g-chuy%C3%AAn-d%C3%B9ng-%C4%91%E1%BB%83-ch%C6%A1i-game-i.202843264.21395764158?sp_atk=7f5d3875-72e3-41e5-b939-b265a951c656&xptdk=7f5d3875-72e3-41e5-b939-b265a951c656"
               class="cta"
               >Buy Now</a
             >

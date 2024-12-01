@@ -27,10 +27,10 @@
             </div>
             <div><div class="remember-forgot"></div>
                 <label><input type="checkbox">Remember me</label>
-                <a href="#">I forgot my password</a>
+                <a href="register.html">I forgot my password</a>
             </div>
 
-            <button type="submit" class="btn">Login</button>
+            <button type="submit" class="btn" a href="index.html">Login</button>
             
             <div class="register-link">
                 <p>Don't have an account, really? 
@@ -39,5 +39,51 @@
             </div>
         </form>
     </div>
+    <script>
+    // Get references to input fields, feedback elements, and submit button
+    const usernameInput = document.getElementById('username');
+    const passwordInput = document.getElementById('password');
+    const usernameFeedback   
+ = document.getElementById('usernameFeedback');
+    const passwordFeedback = document.getElementById('passwordFeedback');
+    const submitButton = document.getElementById('submitButton');
+    const loginForm = document.getElementById('loginForm');
+
+    // Define validation functions
+    function validateUsername(username) {
+        // ... (same validation logic as before)
+    }
+
+    function validatePassword(password) {
+        // ... (same validation logic as before)
+    }
+
+    // Event listener for form submission
+    loginForm.addEventListener('submit', (event) => {
+        event.preventDefault();
+
+        const username = usernameInput.value;
+        const password = passwordInput.value;   
+
+
+        // Clear previous validation messages
+        usernameFeedback.textContent = '';
+        passwordFeedback.textContent = '';
+
+        // Validate username and password
+        if (!validateUsername(username)) {
+            usernameFeedback.textContent = 'Username must be 6 to 30 characters';
+            return;
+        }
+
+        if (!validatePassword(password)) {
+            passwordFeedback.textContent = 'Password must be 6 to 12 characters and contain at least one word character';
+            return;
+        }
+
+        // If validation is successful, submit the form
+        loginForm.submit();
+    });
+</script>
 </body>
 </html>

@@ -1,364 +1,142 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Keyboard Types</title>
-    <link
-      rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
-    />
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Redesigned Product Page</title>
     <style>
-      * {
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-        font-family: Arial, sans-serif;
-      }
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
+            background-color: #000000;
+            color: #333;
+        }
 
-      body {
-        background-color: black;
-        color: white;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-      }
+        header {
+            background-color: #4CAF50;
+            color: rgb(0, 0, 0);
+            text-align: center;
+            padding: 1rem;
+        }
 
-      header {
-        background: url("https://www.man-machine.com/wp-content/uploads/2015/05/dcool-backlight-left.jpg")
-          no-repeat center center/cover;
-        padding: 60px;
-        width: 100%;
-        height: 180%;
-        text-align: center;
-        color: #ffffff;
-        border-radius: 5px;
-      }
+        header h1 {
+            margin: 0;
+            font-size: 2.5rem;
+        }
 
-      header h1 {
-        font-size: 3em;
-        margin-bottom: 20px;
-      }
+        .container {
+            display: grid;
+            grid-template-rows: auto auto auto;
+            row-gap: 2rem;
+            max-width: 1200px;
+            margin: 2rem auto;
+            padding: 1rem;
+            background-color: white;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+        }
 
-      header p {
-        font-size: 1.2em;
-        color: #dddddd;
-      }
+        .section {
+            padding: 1.5rem;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+        }
 
-      .section {
-        width: 90%;
-        max-width: 1000px;
-        padding: 20px;
-        background-color: #1a1a1a;
-        /* Darker background */
-        margin: 20px 0;
-        border-radius: 10px;
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        gap: 20px;
-        transition: transform 0.3s;
-        color: #b0b0b0;
-        /* Light gray text color */
-      }
+        .section h2 {
+            margin-top: 0;
+            font-size: 1.8rem;
+            color: #4CAF50;
+        }
 
-      .section-content {
-        flex: 1;
-        color: #b0b0b0;
-        text-align: left;
-      }
+        .section p {
+            margin: 0.5rem 0;
+        }
 
-      .section-content h2 {
-        font-size: 1.8em;
-        font-weight: bold;
-        color: white;
-        margin-bottom: 10px;
-      }
+        .product {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
 
-      .section-content p {
-        color: #d0d0d0;
-        font-size: 1em;
-      }
+        .product img {
+            width: 100%;
+            max-width: 200px;
+            border-radius: 8px;
+        }
 
-      .section img {
-        width: 50%;
-        height: auto;
-        border-radius: 10px;
-      }
+        .product:hover img {
+            transform: scale(1.05);
+            transition: transform 0.3s ease;
+        }
 
-      .section:hover {
-        transform: scale(1.05);
-        background-color: #333;
-      }
+        footer {
+            text-align: center;
+            padding: 1rem;
+            background-color: #4CAF50;
+            color: white;
+            margin-top: 2rem;
+        }
 
-      footer {
-        background-color: #1f1f1f;
-        width: 100%;
-        padding: 20px;
-        text-align: center;
-        font-size: 1em;
-        color: #00e5ff;
-      }
+        @media (max-width: 768px) {
+            .container {
+                grid-template-rows: auto;
+                row-gap: 1rem;
+            }
 
-      .product {
-        background-color: #444;
-        padding: 20px;
-        margin: 10px;
-        text-align: center;
-        border-radius: 10px;
-        transition: transform 0.3s;
-        display: flex;
-        justify-content: space-evenly;
-        flex-direction: column;
-      }
+            .section {
+                padding: 1rem;
+            }
 
-      .product img {
-        width: 294px;
-        height: auto;
-        margin-bottom: 10px;
-      }
-
-      .product:hover {
-        transform: scale(1.05);
-        background-color: #555;
-      }
-
-      .cta {
-        background-color: #ff4081;
-        padding: 10px 30px;
-        font-size: 1.5em;
-        color: white;
-        border-radius: 10px;
-        text-align: center;
-        cursor: pointer;
-      }
-
-      nav {
-        justify-content: space-between;
-        display: flex;
-        width: 100%;
-      }
-
-      .text-light-emphasis {
-        color: white !important;
-      }
+            header h1 {
+                font-size: 2rem;
+            }
+        }
     </style>
-  </head>
+</head>
+<body>
 
-  <body>
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-      <div class="container-fluid">
-        <a class="navbar-brand" href="#">Keyboard Types</a>
-        <button
-          class="navbar-toggler"
-          type="button"
-          data-bs-toggle="collapse"
-          data-bs-target="#navbarNav"
-          aria-controls="navbarNav"
-          aria-expanded="false"
-          aria-label="Toggle navigation"
-        >
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarNav">
-          <ul class="navbar-nav ms-auto">
-            <li class="nav-item"><a class="nav-link" href="#">Home</a></li>
-            <li class="nav-item"><a class="nav-link" href="#">About</a></li>
-            <li class="nav-item"><a class="nav-link" href="#">Options</a></li>
-            <li class="nav-item"><a class="nav-link" href="#">Others</a></li>
-            <li class="nav-item"><a class="nav-link" href="#">Help</a></li>
-          </ul>
-        </div>
-      </div>
-    </nav>
+<header>
+    <h1>Redesigned Product Page</h1>
+</header>
 
-    <header>
-      <h1>All About Keyboards</h1>
-      <p>
-        Keyboards come in various styles, each catering to different user
-        preferences and needs. Each type has its unique advantages, making the
-        choice largely dependent on personal preference and specific use cases.
-      </p>
-      <p>
-        Explore the different types of keyboards: Chicklet, Membrane, and
-        Mechanical.
-      </p>
-    </header>
-
+<div class="container">
+    <!-- Section 1 -->
     <div class="section">
-      <div class="section-content">
-        <h2>Chicklet Keyboard</h2>
-        <p>
-          Chicklet keyboards are known for their flat, square-shaped keys with a
-          low profile. They're commonly used in laptops and are known for being
-          slim and quiet.
-        </p>
-      </div>
-      <img
-        src="https://laptop88.vn/media/news/0701_btnbnphmlaptopDellInspiron153000.jpg"
-        alt="Chicklet Keyboard"
-      />
+        <h2>Product Information</h2>
+        <div class="product">
+            <img src="product1.jpg" alt="Product 1">
+            <div>
+                <p><strong>Name:</strong> Chiclet Keyboard</p>
+                <p><strong>Price:</strong> $45</p>
+                <p><strong>Description:</strong> A modern keyboard with chiclet-style keys, perfect for efficient typing.</p>
+            </div>
+        </div>
     </div>
 
+    <!-- Section 2 -->
     <div class="section">
-      <div class="section-content">
-        <h2>Membrane Keyboard</h2>
-        <p>
-          Membrane keyboards use a thin, flexible membrane layer under the keys.
-          They're affordable and provide a soft typing experience but may lack
-          tactile feedback.
-        </p>
-      </div>
-      <img
-        src="https://m.media-amazon.com/images/I/71++7qReFrL._AC_UF1000,1000_QL80_.jpg"
-        alt="Membrane Keyboard"
-      />
+        <h2>Customer Reviews</h2>
+        <p><strong>Anna:</strong> "Absolutely love this keyboard! So quiet and smooth to type on."</p>
+        <p><strong>John:</strong> "Great value for the price. Perfect for my home office."</p>
     </div>
 
+    <!-- Section 3 -->
     <div class="section">
-      <div class="section-content">
-        <h2>Mechanical Keyboard</h2>
-        <p>
-          Mechanical keyboards are popular for their durable switches and
-          tactile feedback. They offer various switch types catering to
-          different preferences.
-        </p>
-      </div>
-      <img
-        src="https://preview.redd.it/q821sgp964o81.jpg?auto=webp&s=ce5f26c8719c367d954b393cf91c9d22f005a1b0"
-        alt="Mechanical Keyboard"
-      />
+        <h2>Technical Specifications</h2>
+        <ul>
+            <li>Connectivity: Wireless</li>
+            <li>Battery Life: Up to 6 months</li>
+            <li>Weight: 1.2 lbs</li>
+            <li>Dimensions: 17.5 x 5.5 x 1.2 inches</li>
+        </ul>
     </div>
+</div>
 
-    <div>
-      <p>
-        Thank you for reading! I hope you now know which type of keyboard will
-        be suitable for your needs.
-      </p>
-      <p>Here are some recommended keyboards to buy:</p>
-      <div class="d-flex justify-content-center flex-wrap">
-        <div class="product">
-          <img
-            src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT6SlXFImcENkWDJ78D2lJPyVXdSD5qXojD-6ZGKga3385lPP4WUJHQRVzj4nOnAI7sr34&usqp=CAU"
-            alt="Arrango Compact Keyboard"
-          />
-          <div class="product-details">
-            <h3>Arrango Compact</h3>
-            <p>Price: $9</p>
-            <a
-              href="https://wholesale.pimoroni.com/products/wired-slim-chiclet-keyboard"
-              class="cta"
-              >Buy Now</a
-            >
-          </div>
-        </div>
-        <div class="product">
-          <img
-            src="https://cdn.mos.cms.futurecdn.net/RcPeJVziNWif3pDd2XTQBb.jpg"
-            alt="Carnotaurus 7881 Keyboard"
-          />
-          <div class="product-details">
-            <h3>Carnotaurus 7881</h3>
-            <p>Price: $18</p>
-            <a
-              href="https://wholesale.pimoroni.com/products/wired-slim-chiclet-keyboard"
-              class="cta"
-              >Buy Now</a
-            >
-          </div>
-        </div>
-        <div class="product">
-          <img
-            src="https://www.popsci.com/wp-content/uploads/2022/02/12/mechanical-keyboard-with-rbg.jpg"
-            alt="Angorayer80 Keyboard"
-          />
-          <div class="product-details">
-            <h3>Angorayer80</h3>
-            <p>Price: $75</p>
-            <a
-              href="https://wholesale.pimoroni.com/products/wired-slim-chiclet-keyboard"
-              class="cta"
-              >Buy Now</a
-            >
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="container">
-      <footer
-        class="row row-cols-1 row-cols-sm-2 row-cols-md-5 py-5 my-5 border-top"
-      >
-        <div class="col mb-3">
-          <p class="text-light-emphasis">Keyboard Types © 2024</p>
-        </div>
+<footer>
+    <p>&copy; 2024 ProductPage Inc. All rights reserved.</p>
+</footer>
 
-        <div class="col mb-3"></div>
-
-        <div class="col mb-3">
-          <h5>Section</h5>
-          <ul class="nav flex-column">
-            <li class="nav-item mb-2">
-              <a href="#" class="nav-link p-0 text-light-emphasis">Home</a>
-            </li>
-            <li class="nav-item mb-2">
-              <a href="#" class="nav-link p-0 text-light-emphasis">Features</a>
-            </li>
-            <li class="nav-item mb-2">
-              <a href="#" class="nav-link p-0 text-light-emphasis">Pricing</a>
-            </li>
-            <li class="nav-item mb-2">
-              <a href="#" class="nav-link p-0 text-light-emphasis">FAQs</a>
-            </li>
-            <li class="nav-item mb-2">
-              <a href="#" class="nav-link p-0 text-light-emphasis">About</a>
-            </li>
-          </ul>
-        </div>
-
-        <div class="col mb-3">
-          <h5>Section</h5>
-          <ul class="nav flex-column">
-            <li class="nav-item mb-2">
-              <a href="#" class="nav-link p-0 text-light-emphasis">Home</a>
-            </li>
-            <li class="nav-item mb-2">
-              <a href="#" class="nav-link p-0 text-light-emphasis">Features</a>
-            </li>
-            <li class="nav-item mb-2">
-              <a href="#" class="nav-link p-0 text-light-emphasis">Pricing</a>
-            </li>
-            <li class="nav-item mb-2">
-              <a href="#" class="nav-link p-0 text-light-emphasis">FAQs</a>
-            </li>
-            <li class="nav-item mb-2">
-              <a href="#" class="nav-link p-0 text-light-emphasis">About</a>
-            </li>
-          </ul>
-        </div>
-
-        <div class="col mb-3">
-          <h5>Section</h5>
-          <ul class="nav flex-column">
-            <li class="nav-item mb-2">
-              <a href="#" class="nav-link p-0 text-light-emphasis">Home</a>
-            </li>
-            <li class="nav-item mb-2">
-              <a href="#" class="nav-link p-0 text-light-emphasis">Features</a>
-            </li>
-            <li class="nav-item mb-2">
-              <a href="#" class="nav-link p-0 text-light-emphasis">Pricing</a>
-            </li>
-            <li class="nav-item mb-2">
-              <a href="#" class="nav-link p-0 text-light-emphasis">FAQs</a>
-            </li>
-            <li class="nav-item mb-2">
-              <a href="#" class="nav-link p-0 text-light-emphasis">About</a>
-            </li>
-          </ul>
-        </div>
-      </footer>
-    </div>
-
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-  </body>
+</body>
 </html>

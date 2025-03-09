@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Search Engine</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background: linear-gradient(135deg, #e3e3e3, #ffffff);
+            font-family: 'Frutiger', sans-serif;
+        }
+
+        .search-container {
+            max-width: 600px;
+            margin: 100px auto;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            background: rgba(255, 255, 255, 0.8);
+        }
+
+        .btn-search {
+            background-color: #0066cc;
+            color: white;
+            transition: background-color 0.3s;
+        }
+
+        .btn-search:hover {
+            background-color: #004999;
+        }
+
+        img {
+            width: 300px;
+            length: auto;
+            margin: 100px auto;
+            padding: 20px;
+            display: grid;
+        }
+        h1 {
+            font-family: 'Frutiger', sans-serif;
+            font-weight: 700;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="search-container">
+        
+        <img src="https://yt3.googleusercontent.com/dIz39TOmpYBJHZZSfNqEv8xpH6qWRjhA4bw002bu9xI6nslIEOKfhtiCKGqUgGhoCJWWsQjOiA=s900-c-k-c0x00ffffff-no-rj" alt="Logo">
+        <h1>XL Search</h1>
+        <form id="searchForm" class="d-flex">
+            <input id="searchInput" type="text" class="form-control me-2" placeholder="Enter your query...">
+            <button type="submit" class="btn btn-search">Search</button>
+        </form>
+    </div>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+
+    <script>
+        document.getElementById('searchForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+            const query = document.getElementById('searchInput').value;
+            if (query.trim()) {
+                const googleSearchUrl = `https://www.google.com/search?q=${encodeURIComponent(query)}`;
+                window.open(googleSearchUrl, '_blank');
+            }
+        });
+    </script>
+</body>
+</html>
+

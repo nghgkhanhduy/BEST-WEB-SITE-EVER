@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Enter Your Information</title>
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=RocknRoll+One&display=swap");
+
+      body {
+        background-color: white;
+        font-family: "RocknRoll One", sans-serif;
+        text-align: center;
+        padding: 20px;
+      }
+
+      h2 {
+        color: orange;
+      }
+
+      form {
+        background: #fff3e0;
+        padding: 20px;
+        border-radius: 10px;
+        width: 300px;
+        margin: auto;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      }
+
+      input {
+        width: 100%;
+        padding: 10px;
+        margin: 10px 0;
+        border: 1px solid #ff9800;
+        border-radius: 5px;
+      }
+
+      button {
+        background: orange;
+        color: white;
+        border: none;
+        padding: 10px 15px;
+        cursor: pointer;
+        border-radius: 5px;
+      }
+
+      button:hover {
+        background: #e68900;
+      }
+
+      .output {
+        margin-top: 20px;
+        font-size: 18px;
+      }
+    </style>
+  </head>
+  <body>
+    <h2>Enter Your Information</h2>
+
+    <form id="userForm">
+      <label for="name">Name:</label>
+      <input type="text" id="name" required />
+
+      <label for="email">Email:</label>
+      <input type="email" id="email" required />
+
+      <button type="submit">Submit</button>
+    </form>
+
+    <div class="output" id="output"></div>
+
+    <script>
+      document
+        .getElementById("userForm")
+        .addEventListener("submit", function (event) {
+          event.preventDefault();
+
+          let name = document.getElementById("name").value;
+          let email = document.getElementById("email").value;
+
+          if (name && email) {
+            let userData = { name, email };
+            localStorage.setItem("userInfo", JSON.stringify(userData));
+
+            displayUserData();
+          }
+        });
+
+      function displayUserData() {
+        let storedData = localStorage.getItem("userInfo");
+
+        if (storedData) {
+          let user = JSON.parse(storedData);
+          document.getElementById(
+            "output"
+          ).innerHTML = `<p><strong>Name:</strong> ${user.name}</p>
+                     <p><strong>Email:</strong> ${user.email}</p>`;
+        }
+      }
+
+      displayUserData();
+    </script>
+  </body>
+</html>

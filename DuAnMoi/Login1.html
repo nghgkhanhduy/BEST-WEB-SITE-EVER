@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Form Validation Advanced</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background: linear-gradient(135deg, #8B4513, #00008B);
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+    .container {
+      background: #fff;
+      border-radius: 12px;
+      padding: 2rem;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+      width: 90%;
+      max-width: 400px;
+      margin-top: 60px;
+    }
+    h2 {
+      text-align: center;
+      margin-bottom: 1rem;
+      color: #333;
+    }
+    .form-group {
+      margin-bottom: 1.5rem;
+      position: relative;
+    }
+    label {
+      display: block;
+      margin-bottom: 0.5rem;
+      color: #333;
+    }
+    input[type="text"],
+    input[type="email"],
+    input[type="password"],
+    input[type="tel"] {
+      width: 100%;
+      padding: 0.75rem;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      font-size: 1rem;
+      outline: none;
+      transition: border-color 0.3s ease;
+    }
+    input:focus {
+      border-color: #0078D7; 
+      box-shadow: 0 0 0 2px rgba(0, 120, 215, 0.2);
+    }
+    .error-message {
+      color: #FF0000;
+      font-size: 0.875rem;
+      margin-top: 0.25rem;
+      display: none;
+    }
+    .btn {
+      width: 100%;
+      padding: 0.75rem;
+      background-color: #0078D7;
+      color: #fff;
+      border: none;
+      border-radius: 8px;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+      margin-top: 1rem;
+    }
+    .btn:hover {
+      background-color: #005a9e;
+    }
+    .hotbar {
+      width: 100%;
+      background: rgba(255, 255, 255, 0.8);
+      backdrop-filter: blur(10px);
+      padding: 0.5rem 1rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1px solid #e0e0e0;
+      position: fixed;
+      top: 0;
+      left: 0;
+    }
+    .hotbar .icon {
+      width: 32px;
+      height: 32px;
+      background: #0078D7;
+      border-radius: 50%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: #fff;
+      font-size: 1.2rem;
+    }
+    .password-container {
+      display: flex;
+      align-items: center;
+      position: relative;
+    }
+    .password-container input {
+      flex-grow: 1;
+    }
+    .show-password {
+      position: absolute;
+      right: 10px;
+      cursor: pointer;
+      font-size: 0.9rem;
+      color: #0078D7;
+    }
+    .show-password:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+  <div class="hotbar">
+    <div class="icon">W</div>
+    <div>Hmmm</div>
+    <div class="icon">⚙</div>
+  </div>
+  <div class="container">
+    <!-- Registration Form -->
+    <h2>Đăng Nhập</h2>
+    <form id="registrationForm" novalidate>
+     
+      <div class="form-group">
+        <label for="email">Email</label>
+        <input type="email" id="email" name="email" placeholder="Nhập email">
+        <div class="error-message" id="emailError">Invalid Email</div>
+      </div>
+      <div class="form-group">
+        <label for="password">Password <span class="show-password" onclick="togglePassword()">Show</span></label>
+        <div class="password-container">
+          <input type="password" id="password" name="password" placeholder="Nhập password">
+        </div>
+        <div class="error-message" id="passwordError">
+          Password must include lowercase letters, numbers, and special characters.
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="phone">Phone Number</label>
+        <input type="tel" id="phone" name="phone" placeholder="Nhập số điện thoại">
+        <div class="error-message" id="phoneError">Invalid Phone Number</div>
+      </div>
+      <button type="submit" class="btn">Submit</button>
+    </form>
+
+    <!-- Toggle Button for Sign In Form -->
+    <button id="toggleSignIn" class="btn">No accounts cowpoke🥺?'Sign in'</button>
+
+    <!-- Sign In Form (initially hidden) -->
+    <div id="signInContainer" style="display: none; margin-top: 2rem;">
+      <h2>Sign In</h2>
+      <form id="signInForm" novalidate>
+        <div class="form-group">
+          <label for="signInName">Name</label>
+          <input type="text" id="signInName" name="signInName" placeholder="Nhập name">
+          <div class="error-message" id="signInNameError">Invalid Name</div>
+        </div>
+        <div class="form-group">
+          <label for="signInEmail">Email</label>
+          <input type="email" id="signInEmail" name="signInEmail" placeholder="Nhập email">
+          <div class="error-message" id="signInEmailError">Invalid Email</div>
+        </div>
+        <div class="form-group">
+          <label for="signInPassword">
+            Password <span class="show-password" onclick="toggleSignInPassword()">Show</span>
+          </label>
+          <div class="password-container">
+            <input type="password" id="signInPassword" name="signInPassword" placeholder="Nhập password" onclick="togglePassword()">
+          </div>
+          <div class="error-message" id="signInPasswordError">
+            Password must include lowercase letters, numbers, and special characters.
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="signInConfirmPassword">Confirm Password</label>
+          <input type="password" id="signInConfirmPassword" name="signInConfirmPassword" placeholder="Confirm password">
+          <div class="error-message" id="signInConfirmPasswordError">Passwords do not match</div>
+        </div>
+        <button type="submit" class="btn">Sign In</button>
+      </form>
+    </div>
+  </div>
+
+  <script>
+    // Toggle visibility for registration password
+    function togglePassword() {
+      const passwordInput = document.getElementById('password');
+      const showPasswordText = document.querySelector('.show-password');
+      if (passwordInput.type === 'password') {
+        passwordInput.type = 'text';
+        showPasswordText.textContent = 'Hide';
+      } else {
+        passwordInput.type = 'password';
+        showPasswordText.textContent = 'Show';
+      }
+    }
+
+    // Toggle visibility for sign in password field
+    function toggleSignInPassword() {
+      const passwordInput = document.getElementById('signInPassword');
+      const showPasswordText = document.querySelector('#signInContainer .show-password');
+      if (passwordInput.type === 'password') {
+        passwordInput.type = 'text';
+        showPasswordText.textContent = 'Hide';
+      } else {
+        passwordInput.type = 'password';
+        showPasswordText.textContent = 'Show';
+      }
+    }
+
+    // Registration form validation and redirection
+    document.getElementById('registrationForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      document.querySelectorAll('#registrationForm .error-message').forEach(el => el.style.display = 'none');
+      let hasError = false;
+
+      const username = document.getElementById('username').value.trim();
+      const email = document.getElementById('email').value.trim();
+      const password = document.getElementById('password').value;
+      const phone = document.getElementById('phone').value.trim();
+
+      if (username === '') {
+        document.getElementById('usernameError').style.display = 'block';
+        hasError = true;
+      }
+      if (email === '') {
+        document.getElementById('emailError').style.display = 'block';
+        hasError = true;
+      }
+      if (password === '') {
+        document.getElementById('passwordError').style.display = 'block';
+        hasError = true;
+      }
+      if (phone === '') {
+        document.getElementById('phoneError').style.display = 'block';
+        hasError = true;
+      }
+
+      const emailPattern = /^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/;
+      if (email !== '' && !emailPattern.test(email)) {
+        document.getElementById('emailError').textContent = 'Invalid Email Format';
+        document.getElementById('emailError').style.display = 'block';
+        hasError = true;
+      }
+
+      const phonePattern = /^[0-9]{10,15}$/;
+      if (phone !== '' && !phonePattern.test(phone)) {
+        document.getElementById('phoneError').textContent = 'Invalid Phone Number Format';
+        document.getElementById('phoneError').style.display = 'block';
+        hasError = true;
+      }
+
+      const passwordPattern = /^(?=.*[a-z])(?=.*\d)(?=.*[@$!%*?&]).{8,}$/;
+      if (password !== '' && !passwordPattern.test(password)) {
+        document.getElementById('passwordError').style.display = 'block';
+        hasError = true;
+      }
+
+      if (!hasError) {
+        // Redirect to the YouTube Shorts link on successful registration
+        window.location.href = "https://youtube.com/shorts/WiGM7D2wZlI?si=MwLy1hELQHjSuXFQ";
+      }
+    });
+
+    // Toggle between Registration and Sign In forms
+    document.getElementById('toggleSignIn').addEventListener('click', function() {
+      const signInContainer = document.getElementById('signInContainer');
+      const registrationForm = document.getElementById('registrationForm');
+      if (registrationForm.style.display !== 'none') {
+         // Chuyển sang chế độ Sign In: ẩn đăng ký, hiển thị sign in
+         registrationForm.style.display = 'none';
+         signInContainer.style.display = 'block';
+         this.textContent = "Already have an account bro?'Log in'";
+      } else {
+         // Chuyển sang chế độ đăng ký: hiển thị đăng ký, ẩn sign in
+         registrationForm.style.display = 'block';
+         signInContainer.style.display = 'none';
+         this.textContent = "No accounts cowpoke🥺?'Sign in'";
+      }
+    });
+
+    // Sign in form validation
+    document.getElementById('signInForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      document.querySelectorAll('#signInContainer .error-message').forEach(el => el.style.display = 'none');
+      let hasError = false;
+
+      const name = document.getElementById('signInName').value.trim();
+      const email = document.getElementById('signInEmail').value.trim();
+      const password = document.getElementById('signInPassword').value;
+      const confirmPassword = document.getElementById('signInConfirmPassword').value;
+
+      if (name === '') {
+        document.getElementById('signInNameError').style.display = 'block';
+        hasError = true;
+      }
+      if (email === '') {
+        document.getElementById('signInEmailError').style.display = 'block';
+        hasError = true;
+      }
+      if (password === '') {
+        document.getElementById('signInPasswordError').style.display = 'block';
+        hasError = true;
+      }
+      if (confirmPassword === '') {
+        document.getElementById('signInConfirmPasswordError').textContent = 'Confirm your password';
+        document.getElementById('signInConfirmPasswordError').style.display = 'block';
+        hasError = true;
+      }
+
+      const emailPattern = /^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/;
+      if (email !== '' && !emailPattern.test(email)) {
+        document.getElementById('signInEmailError').textContent = 'Invalid Email Format';
+        document.getElementById('signInEmailError').style.display = 'block';
+        hasError = true;
+      }
+
+      const passwordPattern = /^(?=.*[a-z])(?=.*\d)(?=.*[@$!%*?&]).{8,}$/;
+      if (password !== '' && !passwordPattern.test(password)) {
+        document.getElementById('signInPasswordError').textContent = 'Password must include lowercase letters, numbers, and special characters.';
+        document.getElementById('signInPasswordError').style.display = 'block';
+        hasError = true;
+      }
+
+      if (password !== '' && confirmPassword !== '' && password !== confirmPassword) {
+        document.getElementById('signInConfirmPasswordError').textContent = 'Passwords do not match';
+        document.getElementById('signInConfirmPasswordError').style.display = 'block';
+        hasError = true;
+      }
+
+      if (!hasError) {
+        alert('Sign in successful!');
+        window.location.href = "https://youtube.com/shorts/WiGM7D2wZlI?si=MwLy1hELQHjSuXFQ";
+      }
+    });
+  </script>
+</body>
+</html>

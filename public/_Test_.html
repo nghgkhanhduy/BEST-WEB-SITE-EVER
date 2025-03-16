@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="vi">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -27,11 +27,11 @@
         /* Thêm đệm trên để không bị che bởi navbar cố định */
         padding-top: 56px;
       }
-      
+
       header {
         background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0));
         background: url("https://i.redd.it/whp1k2y61ju41.jpg") no-repeat center center/cover;
-        backdrop-filter: blur(10px);
+        backdrop-filter: blur(10px); 
         border-radius: 15px;
         padding: 60px;
         width: 100%;
@@ -39,7 +39,7 @@
         color: #ffffff;
         box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
       }
-      
+
       @keyframes glowing-title {
         0% { color: rgb(255, 0, 0); }
         25% { color: rgb(0, 255, 0); }
@@ -47,7 +47,7 @@
         75% { color: rgb(255, 255, 0); }
         100% { color: rgb(255, 0, 0); }
       }
-      
+
       @keyframes glowing-stroke {
         0% { text-shadow: 0 0 5px rgb(255, 0, 0), 0 0 3px rgb(255, 0, 0), 0 0 3px rgb(255, 0, 0), 0 0 3px rgb(255, 0, 0); }
         25% { text-shadow: 0 0 5px rgb(1, 136, 1), 0 0 3px rgb(0, 128, 0), 0 0 3px rgb(0, 128, 0), 0 0 3px rgb(0, 117, 0); }
@@ -55,7 +55,7 @@
         75% { text-shadow: 0 0 5px rgb(255, 100, 0), 0 0 3px rgb(255, 100, 0), 0 0 3px rgb(255, 100, 0), 0 0 3px rgb(255, 100, 0); }
         100% { text-shadow: 0 0 5px rgb(255, 0, 0), 0 0 3px rgb(255, 0, 0), 0 0 3px rgb(255, 0, 0), 0 0 3px rgb(255, 0, 0); }
       }
-      
+
       header h1 {
         font-family: "Segoe UI Black", sans-serif;
         font-size: 3em;
@@ -63,14 +63,14 @@
         animation: glowing-title 3s infinite;
         text-shadow: 0 4px 8px rgba(255, 255, 255, 0.6);
       }
-      
+
       header p {
         font-family: Arial, sans-serif;
         font-size: 1.2em;
         color: #dddddd;
         animation: glowing-stroke 5s infinite;
       }
-      
+
       .section {
         width: 90%;
         max-width: 1000px;
@@ -86,13 +86,13 @@
         color: #b0b0b0;
         box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
       }
-      
+
       .section-content {
         flex: 1;
         color: #b0b0b0;
         text-align: left;
       }
-      
+
       .section-content h2 {
         font-size: 1.8em;
         font-weight: bold;
@@ -100,26 +100,26 @@
         text-shadow: 0 2px 4px rgba(255, 255, 255, 0.3);
         margin-bottom: 10px;
       }
-      
+
       .section-content p {
         color: #d0d0d0;
         font-size: 1em;
       }
-      
+
       .section img {
         width: 50%;
         height: auto;
         border-radius: 10px;
         box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
       }
-      
+
       .section:hover {
         transform: scale(1.05);
         background-color: #333;
       }
-      
+
       footer {
-        background-color: #000000 no-repeat center center/cover;
+        background-color: #000000;
         width: 100%;
         padding: 20px;
         text-align: center;
@@ -127,7 +127,7 @@
         color: #ffffff;
         display: flex;
       }
-      
+
       .product {
         background-color: #444;
         padding: 20px;
@@ -139,18 +139,18 @@
         justify-content: space-evenly;
         flex-direction: column;
       }
-      
+
       .product img {
         width: 294px;
         height: auto;
         margin-bottom: 10px;
       }
-      
+
       .product:hover {
         transform: scale(1.05);
         background: rgba(85, 85, 85, 0.9);
       }
-      
+
       .cta {
         background-color: #ff4081;
         padding: 10px 30px;
@@ -160,7 +160,7 @@
         text-align: center;
         cursor: pointer;
       }
-      
+
       nav {
         justify-content: space-between;
         display: flex;
@@ -176,20 +176,20 @@
         text-transform: uppercase;
         transition: transform 0.3s, background-color 0.3s;
       }
-      
+
       .navbar-nav .login-button:hover {
         transform: scale(1.1);
         background-color: gold;
       }
-      
-      /* Style nút Back to Top */
+
+      /* Style cho nút "Back to Top" */
       #backToTop {
         position: fixed;
         bottom: 20px;
         right: 20px;
-        width: 60px; /* Tăng kích thước icon theo yêu cầu */
+        width: 40px; /* Kích thước gấp 2 lần so với con trỏ (khoảng 20px-25px) */
         cursor: pointer;
-        display: none; /* Ẩn khi chưa cuộn xuống */
+        display: none; /* Ẩn khi ở header hoặc không cuộn đủ xuống */
         z-index: 1000;
         transition: transform 0.2s;
       }
@@ -197,24 +197,10 @@
       #backToTop:hover {
         transform: scale(1.1);
       }
-      .btn-custom {
-        background-color: #ff4081; /* màu hồng ban đầu */
-        border: none;
-        padding: 10px 30px;
-        font-size: 1.5em;
-        color: white;
-        border-radius: 10px;
-        transition: background-color 0.3s;
-      }
-
-      .btn-custom:hover {
-        background-color: #007bff; /* chuyển sang màu xanh khi hover */
-      }
-
     </style>
   </head>
-
   <body>
+    <!-- Navbar cố định -->
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
       <div class="container-fluid">
         <a class="navbar-brand" href="#">𝗧𝗬𝗣𝗘𝗦 𝗢𝗙 𝗞𝗘𝗬𝗕𝗢𝗔𝗥𝗗</a>
@@ -236,11 +222,9 @@
             <li class="nav-item"><a class="nav-link" href="404.html">Options</a></li>
             <li class="nav-item"><a class="nav-link" href="404.html">Others</a></li>
             <li class="nav-item"><a class="nav-link" href="404.html">Help</a></li>
-            <li class="nav-item"><a class="nav-link" href="404.html"> ​</a></li>
             <li class="nav-item">
               <a class="nav-link login-button" href="login.html">Login</a>
             </li>
-            <li class="nav-item"><a class="nav-link" href="404.html"> ​</a></li>
             <li class="nav-item">
               <a class="nav-link login-button" href="register.html">Sign up</a>
             </li>
@@ -249,6 +233,7 @@
       </div>
     </nav>
 
+    <!-- Header (đánh dấu vị trí cuộn về) -->
     <header id="header">
       <p>​</p>
       <h1>ALL ABOUT PHYSICAL KEYBOARD</h1>
@@ -266,6 +251,7 @@
       <p>​</p>
     </header>
 
+    <!-- Các section nội dung -->
     <div class="section">
       <div class="section-content">
         <h2>𝙲𝚑𝚒𝚌𝚕𝚎𝚝 Keyboard</h2>
@@ -275,7 +261,7 @@
         </p>
       </div>
       <img
-        src="https://laptophaidang.com/pic/news/images/thay-ban-phim-laptop-dell-co-den.jpeg"
+        src="https://imgs.search.brave.com/8aELVTfzqNjs8S-lV9TBKY92uZUyZaaWI0vaE4itGBU/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9rZXlib2FyZGNsYWNrLmNv/bS93cC1jb250ZW50/L3VwbG9hZHMvMjAy/MC8xMS9sYXB0b3At/a2V5Ym9hcmQtMTAy/NHg2ODIuanBn"
         alt="Chicklet Keyboard"
       />
     </div>
@@ -286,7 +272,6 @@
         <p>
           Membrane keyboards use a thin, flexible membrane layer under the keys.
           They're affordable and provide a soft typing experience but may lack tactile feedback.
-          Also, Chiclet have membrane mechanics.
         </p>
       </div>
       <img
@@ -325,13 +310,11 @@
             <h3>𝗖𝗿𝗮𝗺𝗯𝗲𝗿𝗶𝗲𝘀 𝗖𝗼𝗺𝗽𝗮𝗰𝘁</h3>
             <p>Price: $9</p>
             <p>Chiclet, 75%</p>
-            <button
-            type="button"
-            data-href="https://shopee.vn/B%C3%A0n-ph%C3%ADm-mini-K1000-c%E1%BB%95ng-USB-si%C3%AAu-m%E1%BB%8Fng-ch%E1%BB%91ng-n%C6%B0%E1%BB%9Bc-ch%E1%BB%91ng-%E1%BB%93n-cho-m%C3%A1y-t%C3%ADnh-Laptop-Mini-Keyboard-i.1117257690.28608700581?sp_atk=a4b29157-c338-42d6-bd14-d84d519a34bc&xptdk=a4b29157-c338-42d6-bd14-d84d519a34bc"
-            class="cta btn-custom"
+            <a
+              href="https://shopee.vn/B%C3%A0n-ph%C3%ADm-mini-K1000-c%E1%BB%95ng-USB-si%C3%AAu-m%E1%BB%8Fng-ch%E1%BB%91ng-n%C6%B0%E1%BB%9Bc-ch%E1%BB%91ng-%E1%BB%93n-cho-m%C3%A1y-t%C3%ADnh-Laptop-Mini-Keyboard-i.1117257690.28608700581?sp_atk=a4b29157-c338-42d6-bd14-d84d519a34bc&xptdk=a4b29157-c338-42d6-bd14-d84d519a34bc"
+              class="cta"
+              >Buy Now</a
             >
-              Buy Now
-            </button>
           </div>
         </div>
         <div class="product">
@@ -340,93 +323,35 @@
             alt="Carnotaurus 7881 Keyboard"
           />
           <div class="product-details">
-            <h3>𝐂𝐚𝐫𝐧𝐨𝐭𝐚𝐮𝐫𝐮𝐬𝟏𝟎𝟒</h3>
+            <h3>𝗖𝗮𝗿𝗻𝗼𝘁𝗮𝘂𝗿𝘂𝟭𝟬𝟰</h3>
             <p>Price: $18</p>
             <p>Membrane, 100%</p>
-            <button
-            type="button"
-            data-href="https://shopee.vn/B%C3%A0n-ph%C3%ADm-m%C3%A1y-t%C3%ADnh-c%C3%B3-d%C3%A2y-gaming-SIDOTECH-V4-gi%E1%BA%A3-c%C6%A1-ch%E1%BB%91ng-n%C6%B0%E1%BB%9Bc-led-rgb-ch%C6%A1i-game-l%C3%A0m-vi%E1%BB%87c-v%C4%83n-ph%C3%B2ng-cho-PC-laptop-i.268182642.20453645467?sp_atk=6781d560-cab1-49a7-99cf-20e7a54044ed&xptdk=6781d560-cab1-49a7-99cf-20e7a54044ed"
-            class="cta btn-custom"
+            <a
+              href="https://shopee.vn/B%C3%A0n-ph%C3%ADm-m%C3%A1y-t%C3%ADnh-c%C3%B3-d%C3%A2y-gaming-SIDOTECH-V4-gi%E1%BA%A3-c%C6%A1-ch%E1%BB%91ng-n%C6%B0%E1%BB%9Bc-led-rgb-ch%C6%A1i-game-l%C3%A0m-vi%E1%BB%87c-v%C4%83n-ph%C3%B2ng-cho-PC-laptop-i.268182642.20453645467?sp_atk=6781d560-cab1-49a7-99cf-20e7a54044ed&xptdk=6781d560-cab1-49a7-99cf-20e7a54044ed"
+              class="cta"
+              >Buy Now</a
             >
-              Buy Now
-            </button>
           </div>
         </div>
         <div class="product">
-          
           <img
             src="https://i.redd.it/r0ffshd31az81.jpg"
             alt="Angorayer80 Keyboard"
           />
           <div class="product-details">
             <h3>𝗘𝘀𝘁𝗲𝗿𝗽𝗿𝗶𝘀𝘁𝗲𝟲𝟴</h3>
-            <p>Price: $79</p>
-            <p>Mechanical (Yellow Switch), 65%</p>
-            <button
-            type="button"
-            data-href="https://shopee.vn/B%C3%A0n-ph%C3%ADm-c%C6%A1-AULA-f75-75-80-ph%C3%ADm-rgb-bluetooth-2.4g-chuy%C3%AAn-d%C3%B9ng-%C4%91%E1%BB%83-ch%C6%A1i-game-i.202843264.21395764158?sp_atk=7f5d3875-72e3-41e5-b939-b265a951c656&xptdk=7f5d3875-72e3-41e5-b939-b265a951c656"
-            class="cta btn-custom"
+            <p>Price: $85</p>
+            <p>Mechanical (Yellow Switch), 60%</p>
+            <a
+              href="https://shopee.vn/B%C3%A0n-ph%C3%ADm-c%C6%A1-AULA-f75-75-80-ph%C3%ADm-rgb-bluetooth-2.4g-chuy%C3%AAn-d%C3%B9ng-%C4%91%E1%BB%83-ch%C6%A1i-game-i.202843264.21395764158?sp_atk=7f5d3875-72e3-41e5-b939-b265a951c656&xptdk=7f5d3875-72e3-41e5-b939-b265a951c656"
+              class="cta"
+              >Buy Now</a
             >
-              Buy Now
-            </button>
           </div>
-          
-        </div>
-        
-        <div class="product">
-          
-          <img
-            src="https://simplyian.com/assets/maltron-lefthand-keyboard.jpg"
-            alt="Angorayer80 Keyboard"
-          />
-          <div class="product-details">
-            <h3>𝗪𝗧𝗙𝟯𝟰𝟴𝟱</h3>
-            <p>Price: $499</p>
-            <p>Mechanical (Red Switch, lubed), IDK%</p>
-            <button
-            type="button"
-            data-href="https://shopee.vn/B%C3%A0n-ph%C3%ADm-c%C6%A1-AULA-f75-75-80-ph%C3%ADm-rgb-bluetooth-2.4g-chuy%C3%AAn-d%C3%B9ng-%C4%91%E1%BB%83-ch%C6%A1i-game-i.202843264.21395764158?sp_atk=7f5d3875-72e3-41e5-b939-b265a951c656&xptdk=7f5d3875-72e3-41e5-b939-b265a951c656"
-            class="cta btn-custom"
-            >
-              Buy Now
-            </button>
-          </div>
-          
         </div>
       </div>
     </div>
-    
-    <div class="container">
-      <footer class="row row-cols-1 row-cols-sm-2 row-cols-md-5 py-5 my-5 border-top">
-        <div class="col mb-3">
-          <p class="text-light-emphasis">Keyboard Types © 2024</p>
-        </div>
-        <div class="col mb-3"></div>
-        <div class="col mb-3"></div>
-        <div class="col mb-3"></div>
-        <div class="col mb-3">
-          <h5>Sections:</h5>
-          <ul class="nav flex-column">
-            <li class="nav-item mb-2">
-              <a href="oh.html" class="nav-link p-0 text-light-emphasis">Home</a>
-            </li>
-            <li class="nav-item mb-2">
-              <a href="404.html" class="nav-link p-0 text-light-emphasis">Features</a>
-            </li>
-            <li class="nav-item mb-2">
-              <a href="404.html" class="nav-link p-0 text-light-emphasis">Pricing</a>
-            </li>
-            <li class="nav-item mb-2">
-              <a href="404.html" class="nav-link p-0 text-light-emphasis">FAQs</a>
-            </li>
-            <li class="nav-item mb-2">
-              <a href="404.html" class="nav-link p-0 text-light-emphasis">About</a>
-            </li>
-          </ul>
-        </div>
-      </footer>
-    </div>
-    
+
     <!-- Nút Back to Top -->
     <img
       id="backToTop"
@@ -434,6 +359,7 @@
       alt="Back to Top"
     />
 
+    <!-- Script Bootstrap và JS điều khiển nút Back to Top -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <script>
       // Lấy đối tượng nút Back to Top
@@ -447,22 +373,14 @@
           backToTop.style.display = 'none';
         }
       }
-      
       // Lắng nghe sự kiện cuộn trang
       window.addEventListener('scroll', checkScroll);
-      
+
       // Khi nút được click thì cuộn về phần header
       backToTop.addEventListener('click', function() {
         document.getElementById('header').scrollIntoView({ behavior: 'smooth' });
       });
       
-  
-      document.querySelectorAll('.btn-custom').forEach(function(btn) {
-        btn.addEventListener('click', function() {
-          // Chuyển hướng đến link được lưu trong thuộc tính data-href
-          window.location.href = this.getAttribute('data-href');
-        });
-      });
     </script>
   </body>
 </html>

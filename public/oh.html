@@ -24,8 +24,15 @@
         align-items: center;
         justify-content: center;
         font-family: 'Arial', sans-serif;
-        /* Thêm đệm trên để không bị che bởi navbar cố định */
+        /* Padding to prevent overlap with fixed navbar */
         padding-top: 56px;
+        transition: background-color 0.3s, color 0.3s;
+      }
+      
+      /* Light mode overrides for body */
+      body.light-mode {
+        background-color: #ffffff;
+        color: #000000;
       }
       
       header {
@@ -38,6 +45,12 @@
         text-align: center;
         color: #ffffff;
         box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+      }
+      
+      /* Light mode header background change (header text remains unchanged) */
+      body.light-mode header {
+        background: url("https://i.ytimg.com/vi/XCGgBdHpQZw/hq720.jpg?sqp=-oaymwEhCK4FEIIDSFryq4qpAxMIARUAAAAAGAElAADIQj0AgKJD&rs=AOn4CLBxl3qs4s2qGRt61gX_i0jZMRiNYg")
+          no-repeat center center/cover;
       }
       
       @keyframes glowing-title {
@@ -87,35 +100,23 @@
         box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
       }
       
-      .section-content {
-        flex: 1;
-        color: #b0b0b0;
-        text-align: left;
-      }
-      
-      .section-content h2 {
-        font-size: 1.8em;
-        font-weight: bold;
-        color: white;
-        text-shadow: 0 2px 4px rgba(255, 255, 255, 0.3);
-        margin-bottom: 10px;
-      }
-      
-      .section-content p {
-        color: #d0d0d0;
-        font-size: 1em;
-      }
-      
-      .section img {
-        width: 50%;
-        height: auto;
-        border-radius: 10px;
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
-      }
-      
       .section:hover {
         transform: scale(1.05);
         background-color: #333;
+      }
+      
+      /* Light mode background for divs (except navbar, texts in header/nav, and footer) */
+      body.light-mode .section,
+      body.light-mode .product {
+        background: #d3d3d3;
+      }
+      
+      /* In light mode, all texts inside sections, products, etc. become black */
+      body.light-mode .section,
+      body.light-mode .section * ,
+      body.light-mode .product,
+      body.light-mode .product * {
+        color: #000000;
       }
       
       footer {
@@ -134,7 +135,7 @@
         margin: 10px;
         text-align: center;
         border-radius: 10px;
-        transition: transform 0.3s;
+        transition: transform 0.3s, background-color 0.3s;
         display: flex;
         justify-content: space-evenly;
         flex-direction: column;
@@ -181,23 +182,24 @@
         transform: scale(1.1);
         background-color: gold;
       }
+      
       .recommended-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 20px;
-      justify-items: center;
-      align-items: start;
-      padding: 20px;
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 20px;
+        justify-items: center;
+        align-items: start;
+        padding: 20px;
       }
-
-      /* Style nút Back to Top */
+      
+      /* Back to Header button (bottom-right corner) */
       #backToTop {
         position: fixed;
         bottom: 20px;
         right: 20px;
-        width: 60px; /* Tăng kích thước icon theo yêu cầu */
+        width: 50px;
         cursor: pointer;
-        display: none; /* Ẩn khi chưa cuộn xuống */
+        display: none;
         z-index: 1000;
         transition: transform 0.2s;
       }
@@ -205,8 +207,9 @@
       #backToTop:hover {
         transform: scale(1.1);
       }
+      
       .btn-custom {
-        background-color: #ff4081; /* màu hồng ban đầu */
+        background-color: #ff4081;
         border: none;
         padding: 10px 30px;
         font-size: 1.5em;
@@ -214,26 +217,41 @@
         border-radius: 10px;
         transition: background-color 0.3s;
       }
-
+      
       .btn-custom:hover {
-        background-color: #007bff; /* chuyển sang màu xanh khi hover */
+        background-color: #007bff;
       }
-
+      
+      /* Dark mode toggle icon style (bottom-center) */
+      #darkModeToggle {
+        position: fixed;
+        bottom: 20px;
+        left: 50%;
+        transform: translateX(-50%);
+        z-index: 1100;
+      }
+      
+      #darkModeToggle img {
+        cursor: pointer;
+        width: 50px;
+        height: auto;
+        transition: transform 0.2s;
+      }
+      
+      #darkModeToggle img:hover {
+        transform: scale(1.1);
+      }
     </style>
   </head>
 
   <body>
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
       <div class="container-fluid d-flex align-items-center justify-content-between">
-        
         <a class="navbar-brand" href="#">𝗧𝗬𝗣𝗘𝗦 𝗢𝗙 𝗞𝗘𝗬𝗕𝗢𝗔𝗥𝗗</a>
-    
-        <!-- Middle Section: Centered Logo -->
+        <!-- Centered Logo for larger screens -->
         <a class="navbar-brand mx-auto d-none d-lg-block" href="#">
-          <img src="https://pngimg.com/d/keyboard_PNG101845.png" alt="Logo" style="width: 50px;">
+          <img src="https://cdn3d.iconscout.com/3d/premium/thumb/mechanical-keyboard-with-knop-3d-icon-download-in-png-blend-fbx-gltf-file-formats--gaming-computer-gadget-and-tech-pack-appliances-icons-5526814.png" alt="Logo" style="width: 50px; height: auto;">
         </a>
-    
-        
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
                 aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
@@ -256,7 +274,6 @@
       </div>
     </nav>
     
-
     <header id="header">
       <p>​</p>
       <h1>ALL ABOUT PHYSICAL KEYBOARD</h1>
@@ -323,7 +340,6 @@
         Thank you for reading! I hope you now know which type of keyboard will be suitable for your needs.
       </p>
       <p>Here are some recommended keyboards to buy:</p>
-      <!-- Changed the container class for grid layout -->
       <div class="recommended-grid">
         <div class="product">
           <img
@@ -383,7 +399,7 @@
         </div>
         <div class="product">
           <img
-            src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT9oJXqNCUNij2V5WOEqfsF8BsiZrss5f6r3g&s"
+            src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT8j_JuhYl5OhIocb0vC3wgiIHJs0OyWbuaxA&s"
             alt="Angorayer80 Keyboard"
           />
           <div class="product-details">
@@ -397,7 +413,7 @@
         </div>
         <div class="product">
           <img
-            src="https://simplyian.com/assets/maltron-lefthand-keyboard.jpg"
+            src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT8j_JuhYl5OhIocb0vC3wgiIHJs0OyWbuaxA&s"
             alt="Angorayer80 Keyboard"
           />
           <div class="product-details">
@@ -411,7 +427,6 @@
         </div>
       </div>
     </div>
-    
     
     <div class="container">
       <footer class="row row-cols-1 row-cols-sm-2 row-cols-md-5 py-5 my-5 border-top">
@@ -444,41 +459,59 @@
       </footer>
     </div>
     
-    <!-- Nút Back to Top -->
+    <!-- Back to Header Button -->
     <img
       id="backToTop"
-      src="https://static.vecteezy.com/system/resources/previews/019/953/613/non_2x/3d-arrow-up-icon-free-png.png"
-      alt="Back to Top"
+      src="https://www.freeiconspng.com/uploads/sign-up-button-icon-26.png"
+      alt="Back to Header"
     />
 
+    <!-- Dark Mode Toggle Icon -->
+    <div id="darkModeToggle" class="text-center">
+      <!-- When in dark mode, show the light mode icon (click to switch to light) -->
+      <img
+        id="toggleIcon"
+        src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSaC40ku_dvk2U-e2Dve4dOR9XLi6esvg8zWg&s"
+        alt="Toggle Dark Mode"
+      />
+    </div>
+    
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <script>
-      // Lấy đối tượng nút Back to Top
+      // Back to Header functionality
       const backToTop = document.getElementById('backToTop');
-      // Hàm kiểm tra vị trí cuộn trang
       function checkScroll() {
-        // Nếu cuộn hơn 100px thì hiển thị nút, ngược lại ẩn
         if (window.scrollY > 100) {
           backToTop.style.display = 'block';
         } else {
           backToTop.style.display = 'none';
         }
       }
-      
-      // Lắng nghe sự kiện cuộn trang
       window.addEventListener('scroll', checkScroll);
-      
-      // Khi nút được click thì cuộn về phần header
       backToTop.addEventListener('click', function() {
         document.getElementById('header').scrollIntoView({ behavior: 'smooth' });
       });
       
-  
       document.querySelectorAll('.btn-custom').forEach(function(btn) {
         btn.addEventListener('click', function() {
-          // Chuyển hướng đến link được lưu trong thuộc tính data-href
           window.location.href = this.getAttribute('data-href');
         });
+      });
+      
+      // Dark Mode Toggle functionality
+      const toggleIcon = document.getElementById('toggleIcon');
+      toggleIcon.addEventListener('click', function() {
+        if(document.body.classList.contains('light-mode')) {
+          // Switch to dark mode
+          document.body.classList.remove('light-mode');
+          // Show icon for light mode (click to switch to light mode)
+          this.src = 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSaC40ku_dvk2U-e2Dve4dOR9XLi6esvg8zWg&s';
+        } else {
+          // Switch to light mode
+          document.body.classList.add('light-mode');
+          // Show icon for dark mode (click to switch back)
+          this.src = 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRe6diERHN6SJiWWFLnVUQ2XCQ0O58FNgRQ3yT2uxWFxT1Q1kdyXKSKfG4Hhzj2veZnzrY&usqp=CAU';
+        }
       });
     </script>
   </body>

@@ -15,126 +15,115 @@
         box-sizing: border-box;
         font-family: Arial, sans-serif;
       }
-
+      
       body {
-        background-color: black;
+        background-color: rgba(0, 0, 0, 0.8);
         color: white;
         display: flex;
         flex-direction: column;
         align-items: center;
+        justify-content: center;
+        font-family: 'Arial', sans-serif;
+        padding-top: 56px; /* Prevent overlap with fixed navbar */
+        transition: background-color 0.3s, color 0.3s;
       }
+      
+      body.light-mode {
+        background-color: #ffffff;
+        color: #000000;
+      }
+      
       header {
-        background: url("https://i.redd.it/whp1k2y61ju41.jpg")
-          no-repeat center center/cover;
+        background: linear-gradient(135deg, rgba(0, 0, 0, 0.1), rgba(255, 255, 255, 0.2));
+        background: url("https://i.redd.it/whp1k2y61ju41.jpg") no-repeat center center/cover;
+        backdrop-filter: blur(10px);
+        border-radius: 15px;
         padding: 60px;
         width: 100%;
-        height: auto;
         text-align: center;
         color: #ffffff;
-        border-radius: 5px;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
       }
-
+      
+      body.light-mode header {
+        background: url("https://i.ytimg.com/vi/XCGgBdHpQZw/hq720.jpg?sqp=-oaymwEhCK4FEIIDSFryq4qpAxMIARUAAAAAGAElAADIQj0AgKJD&rs=AOn4CLBxl3qs4s2qGRt61gX_i0jZMRiNYg")
+          no-repeat center center/cover;
+      }
+      
       @keyframes glowing-title {
-        0% {
-          color: rgb(255, 0, 0);
-        }
-        25% {
-          color: rgb(0, 255, 0);
-        }
-        50% {
-          color: rgb(34, 180, 255);
-        }
-        75% {
-          color: rgb(255, 255, 0);
-        }
-        100% {
-          color: rgb(255, 0, 0);
-        }
+        0% { color: rgb(255, 0, 0); }
+        25% { color: rgb(0, 255, 0); }
+        50% { color: rgb(34, 180, 255); }
+        75% { color: rgb(255, 255, 0); }
+        100% { color: rgb(255, 0, 0); }
       }
-
+      
       @keyframes glowing-stroke {
-        0% {
-          text-shadow: 0 0 5px rgb(255, 0, 0), 0 0 3px rgb(255, 0, 0),
-            0 0 3px rgb(255, 0, 0), 0 0 3px rgb(255, 0, 0);
-        }
-        25% {
-          text-shadow: 0 0 5px rgb(0, 126, 0), 0 0 3px rgb(1, 118, 1),
-            0 0 3px rgb(0, 119, 0), 0 0 3px rgb(0, 121, 0);
-        }
-        50% {
-          text-shadow: 0 0 5px rgb(0, 0, 255), 0 0 3px rgb(0, 0, 255),
-            0 0 3px rgb(0, 0, 255), 0 0 3px rgb(0, 0, 255);
-        }
-        75% {
-          text-shadow: 0 0 5px rgb(255, 100, 0), 0 0 3px rgb(255, 100, 0),
-            0 0 3px rgb(255, 100, 0), 0 0 3px rgb(255, 100, 0);
-        }
-        100% {
-          text-shadow: 0 0 5px rgb(255, 0, 0), 0 0 3px rgb(255, 0, 0),
-            0 0 3px rgb(255, 0, 0), 0 0 3px rgb(255, 0, 0);
-        }
+        0% { text-shadow: 0 0 5px rgb(255, 0, 0), 0 0 3px rgb(255, 0, 0), 0 0 3px rgb(255, 0, 0), 0 0 3px rgb(255, 0, 0); }
+        25% { text-shadow: 0 0 5px rgb(1, 136, 1), 0 0 3px rgb(0, 128, 0), 0 0 3px rgb(0, 128, 0), 0 0 3px rgb(0, 117, 0); }
+        50% { text-shadow: 0 0 5px rgb(0, 0, 255), 0 0 3px rgb(0, 0, 255), 0 0 3px rgb(0, 0, 255), 0 0 3px rgb(0, 0, 255); }
+        75% { text-shadow: 0 0 5px rgb(255, 100, 0), 0 0 3px rgb(255, 100, 0), 0 0 3px rgb(255, 100, 0), 0 0 3px rgb(255, 100, 0); }
+        100% { text-shadow: 0 0 5px rgb(255, 0, 0), 0 0 3px rgb(255, 0, 0), 0 0 3px rgb(255, 0, 0), 0 0 3px rgb(255, 0, 0); }
       }
-
+      h5 {
+        color: gold;
+        -webkit-text-stroke: 1px gray;
+      }
       header h1 {
-        font-family: "Segoe UI Black";
+        font-family: "Segoe UI Black", sans-serif;
         font-size: 3em;
         margin-bottom: 20px;
         animation: glowing-title 3s infinite;
+        text-shadow: 0 4px 8px rgba(255, 255, 255, 0.6);
       }
-
+      
       header p {
         font-family: Arial, sans-serif;
         font-size: 1.2em;
         color: #dddddd;
         animation: glowing-stroke 5s infinite;
       }
-
+      
       .section {
         width: 90%;
         max-width: 1000px;
         padding: 20px;
-        background-color: #1a1a1a;
+        background: rgba(26, 26, 26, 0.8);
+        backdrop-filter: blur(8px);
+        border-radius: 15px;
         margin: 20px 0;
-        border-radius: 10px;
-        display: flex;
+        display: grid;
         align-items: center;
-        justify-content: space-between;
         gap: 20px;
-        transition: transform 0.3s;
+        transition: transform 0.3s, background-color 0.3s;
         color: #b0b0b0;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
       }
-
-      .section-content {
-        flex: 1;
-        color: #b0b0b0;
-        text-align: left;
-      }
-
-      .section-content h2 {
-        font-size: 1.8em;
-        font-weight: bold;
-        color: white;
-        margin-bottom: 10px;
-      }
-
-      .section-content p {
-        color: #d0d0d0;
-        font-size: 1em;
-      }
-
-      .section img {
-        width: 50%;
-        height: auto;
-        border-radius: 10px;
-      }
-
+      
       .section:hover {
         transform: scale(1.05);
         background-color: #333;
       }
-
+      .section img {
+        width: 100%;
+        height: 250px;
+        object-fit: cover;
+      }
+      
+      body.light-mode .section,
+      body.light-mode .product {
+        background: #d3d3d3;
+      }
+      
+      body.light-mode .section,
+      body.light-mode .section * ,
+      body.light-mode .product,
+      body.light-mode .product * {
+        color: #000000;
+      }
+      
       footer {
-        background-color: #000000;
+        background-color: #000000 no-repeat center center/cover;
         width: 100%;
         padding: 20px;
         text-align: center;
@@ -142,46 +131,30 @@
         color: #ffffff;
         display: flex;
       }
-
-      .products-grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-        gap: 20px;
-        margin: 20px 0;
-        justify-items: center;
-      }
-
+      
       .product {
         background-color: #444;
         padding: 20px;
-        border-radius: 10px;
+        margin: 10px;
         text-align: center;
-        transition: transform 0.3s, background-color 0.3s;
-        max-width: 300px;
-      }
-
-      .product img {
-        width: 100%;
-        height: auto;
         border-radius: 10px;
+        transition: transform 0.3s, background-color 0.3s;
+        display: flex;
+        justify-content: space-evenly;
+        flex-direction: column;
       }
-
-      .product:hover {
-        transform: scale(1.05);
-        background-color: #555;
-      }
-
-      .product-details h3 {
-        color: white;
-        font-size: 1.2em;
+      
+      .product img {
+        width: 294px;
+        height: auto;
         margin-bottom: 10px;
       }
-
-      .product-details p {
-        color: #d0d0d0;
-        margin: 5px 0;
+      
+      .product:hover {
+        transform: scale(1.05);
+        background: rgba(85, 85, 85, 0.9);
       }
-
+      
       .cta {
         background-color: #ff4081;
         padding: 10px 30px;
@@ -191,12 +164,13 @@
         text-align: center;
         cursor: pointer;
       }
-
+      
       nav {
         justify-content: space-between;
         display: flex;
         width: 100%;
       }
+      
       .navbar-nav .login-button {
         background-color: yellow;
         color: black;
@@ -206,67 +180,167 @@
         text-transform: uppercase;
         transition: transform 0.3s, background-color 0.3s;
       }
-
+      
       .navbar-nav .login-button:hover {
         transform: scale(1.1);
         background-color: gold;
+      }
+      
+      .recommended-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 20px;
+        justify-items: center;
+        align-items: start;
+        padding: 20px;
+      }
+      
+      #backToTop {
+        position: fixed;
+        bottom: 20px;
+        right: 20px;
+        width: 50px;
+        cursor: pointer;
+        display: none;
+        z-index: 1000;
+        transition: transform 0.2s;
+      }
+      
+      #backToTop:hover {
+        transform: scale(1.1);
+      }
+      
+      .btn-custom {
+        background-color: #ff4081;
+        border: none;
+        padding: 10px 30px;
+        font-size: 1.5em;
+        color: white;
+        border-radius: 10px;
+        transition: background-color 0.3s;
+      }
+      
+      .btn-custom:hover {
+        background-color: #007bff;
+      }
+      
+      #darkModeToggle {
+        position: fixed;
+        bottom: 20px;
+        left: 50%;
+        transform: translateX(-50%);
+        z-index: 1100;
+      }
+      
+      #darkModeToggle img {
+        cursor: pointer;
+        width: 50px;
+        height: auto;
+        transition: transform 0.2s;
+      }
+      
+      #darkModeToggle img:hover {
+        transform: scale(1.1);
+      }
+      
+      .carousel-inner {
+        overflow: hidden;
+      }
+      
+      .carousel-item > div {
+        width: 100%;
+        text-align: center;
+      }
+      
+      .carousel-item img {
+        max-width: 50%;
+        height: 50%;
+        display: block;
+        margin: 0 auto;
+        object-fit: contain;
+      }
+      
+      .carousel-indicators {
+        bottom: -40px;
+      }
+      
+      .account-button {
+        display: flex;
+        gap: 20px;
+      }
+      
+      /* Modal custom styles */
+      .modal-body img {
+        max-width: 100%;
+        height: auto;
+        object-fit: cover;
+        border-radius: 10px;
+      }
+      
+      .price-section {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+      }
+      
+      .buttons {
+        display: flex;
+        gap: 10px;
       }
     </style>
   </head>
 
   <body>
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-      <div class="container-fluid">
-        <a class="navbar-brand" href="#">𝗧𝗬𝗣𝗘𝗦 𝗢𝗙 𝗞𝗘𝗬𝗕𝗢𝗔𝗥𝗗</a>
-        <button
-          class="navbar-toggler"
-          type="button"
-          data-bs-toggle="collapse"
-          data-bs-target="#navbarNav"
-          aria-controls="navbarNav"
-          aria-expanded="false"
-          aria-label="Toggle navigation"
-        >
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+      <div class="container-fluid d-flex align-items-center justify-content-between">
+        <a class="navbar-brand">𝗧𝗬𝗣𝗘𝗦 𝗢𝗙 𝗞𝗘𝗬𝗕𝗢𝗔𝗥𝗗</a>
+        <a class="navbar-brand mx-auto d-none d-lg-block" href="https://youtu.be/xvFZjo5PgG0?si=b0DAXqkBAC59CGZq">
+          <img src="https://cdn3d.iconscout.com/3d/premium/thumb/mechanical-keyboard-with-knop-3d-icon-download-in-png-blend-fbx-gltf-file-formats--gaming-computer-gadget-and-tech-pack-appliances-icons-5526814.png" alt="Logo" style="width: 50px; height: auto;">
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
-        <div class="collapse navbar-collapse" id="navbarNav">
-          <ul class="navbar-nav ms-auto">
-            <li class="nav-item"><a class="nav-link" href="#">Home</a></li>
-            <li class="nav-item"><a class="nav-link" href="#">About</a></li>
-            <li class="nav-item"><a class="nav-link" href="#">Options</a></li>
-            <li class="nav-item"><a class="nav-link" href="#">Others</a></li>
-            <li class="nav-item"><a class="nav-link" href="#">Help</a></li>
-            <li class="nav-item">
-              <a class="nav-link login-button" href="logout.html">Log out</a>
-            </li>
+        <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+          <ul class="navbar-nav">
+            <li class="nav-item"><a class="nav-link" href="404.html">Home</a></li>
+            <li class="nav-item"><a class="nav-link" href="404.html">About</a></li>
+            <li class="nav-item"><a class="nav-link" href="404.html">Options</a></li>
+            <li class="nav-item"><a class="nav-link" href="404.html">Others</a></li>
+            <li class="nav-item"><a class="nav-link" href="404.html">Help</a></li>
+            <li class="nav-item"><a class="nav-link" href="404.html"> </a></li>
+            <div class="account-button">
+              <span class="nav-item">
+                <a class="nav-link login-button" href="logout.html">Log out</a>
+              </span>
+            </div>
           </ul>
         </div>
       </div>
     </nav>
-
-    <header>
+    
+    <header id="header">
+      <p>​</p>
       <h1>ALL ABOUT PHYSICAL KEYBOARD</h1>
-      <p> .</p>
-        Keyboards come in various styles, each catering to different user
-        preferences and needs. Each type has its unique advantages, making the
-        choice largely dependent on personal preference and specific use cases.
-        Explore the different types of keyboards: Chicklet, Membrane, and
-        Mechanical.
-      </p>
-      <p>. </p>
+      <p> ​</p>
+      <p>Keyboards come in various styles, each catering to different user preferences</p>
+      <p>and needs. Each type has its unique advantages, making the choice largely</p>
+      <p>dependent on personal preference and specific use cases.</p>
+      <p>Explore the different types of keyboards: Chicklet, Membrane, and Mechanical.</p>
+      <p>​</p>
     </header>
 
+    <!-- Sections for keyboard types -->
     <div class="section">
       <div class="section-content">
-        <h2>Ⓒⓗⓘⓒⓛⓔⓣ Keyboard</h2>
+        <h2>𝙲𝚑𝚒𝚌𝚕𝚎𝚝 Keyboard</h2>
         <p>
-          Chiclet keyboards are known for their flat, square-shaped keys with a
-          low profile. They're commonly used in laptops and are known for being
-          slim and quiet.
+          Chiclet keyboards are known for their flat, square-shaped keys with a low profile.
+          They're commonly used in laptops and are known for being slim and quiet.
         </p>
       </div>
       <img
-        src="https://imgs.search.brave.com/8aELVTfzqNjs8S-lV9TBKY92uZUyZaaWI0vaE4itGBU/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9rZXli/b2FyZGNsYWNrLmNv/bS93cC1jb250ZW50/L3VwbG9hZHMvMjAy/MC8xMS9sYXB0b3At/a2V5Ym9hcmQtMTAy/NHg2ODIuanBn"
+        src="https://laptophaidang.com/pic/news/images/thay-ban-phim-laptop-dell-co-den.jpeg"
         alt="Chicklet Keyboard"
       />
     </div>
@@ -276,8 +350,8 @@
         <h2>𝕸𝖊𝖒𝖇𝖗𝖆𝖓𝖊 Keyboard</h2>
         <p>
           Membrane keyboards use a thin, flexible membrane layer under the keys.
-          They're affordable and provide a soft typing experience but may lack
-          tactile feedback.
+          They're affordable and provide a soft typing experience but may lack tactile feedback.
+          Also, Chiclet have membrane mechanics.
         </p>
       </div>
       <img
@@ -290,10 +364,9 @@
       <div class="section-content">
         <h2>𝓜𝓮𝓬𝓱𝓪𝓷𝓲𝓬𝓪𝓵 Keyboard</h2>
         <p>
-          Mechanical keyboards are popular for their durable switches and
-          tactile feedback. They offer various switch types catering to
-          different preferences. However, the only downside is the prices when
-          most of them ranges at >$50.
+          Mechanical keyboards are popular for their durable switches and tactile feedback.
+          They offer various switch types catering to different preferences.
+          However, the only downside is the prices when most of them range at >$50.
         </p>
       </div>
       <img
@@ -302,119 +375,317 @@
       />
     </div>
 
-    <div>
+    <!-- Carousel for Recommended Keyboards -->
+    <div class="section">
       <p>
-        Thank you for reading! I hope you now know which type of keyboard will
-        be suitable for your needs.
+        Thank you for reading! I hope you now know which type of keyboard will be suitable for your needs.
       </p>
       <p>Here are some recommended keyboards to buy:</p>
-      <div class="products-grid">
-        <div class="product">
-          <img
-            src="https://www.shutterstock.com/image-vector/vector-blank-chiclet-keyboard-mouse-600nw-2458673303.jpg"
-            alt="Keyboard 1"
-          />
-          <div class="product-details">
-            <h3>𝗥𝗔𝗬𝗡𝗘 𝟲𝟱</h3>
-            <p>Price: $20</p>
-            <p>Chiclet, 65%</p>
-            <a href="https://example.com/product1" class="cta">Buy Now</a>
-          </div>
+      <div id="keyboardCarousel" class="carousel slide" data-bs-ride="carousel" data-bs-touch="true">
+        <div class="carousel-indicators">
+            <button type="button" data-bs-target="#keyboardCarousel" data-bs-slide-to="0" class="active" aria-label="Slide 1"></button>
+            <button type="button" data-bs-target="#keyboardCarousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
+            <button type="button" data-bs-target="#keyboardCarousel" data-bs-slide-to="2" aria-label="Slide 3"></button>
+            <button type="button" data-bs-target="#keyboardCarousel" data-bs-slide-to="3" aria-label="Slide 4"></button>
+            <button type="button" data-bs-target="#keyboardCarousel" data-bs-slide-to="4" aria-label="Slide 5"></button>
+            <button type="button" data-bs-target="#keyboardCarousel" data-bs-slide-to="5" aria-label="Slide 6"></button>
         </div>
-
-        <div class="product">
-          <img
-            src="https://product.hstatic.net/1000288298/product/ban_phim_logitech_g913_tkl_lightspeed_wireless_rgb_1_3914bb94b0744ed794701b442f5ed696_master.jpg"
-            alt="Keyboard 2"
-          />
-          <div class="product-details">
-            <h3>𝗔𝗩𝗔𝗡𝗧𝗢𝗥 𝟴𝟬</h3>
-            <p>Price: $40</p>
-            <p>Membrane, TKL</p>
-            <a href="https://example.com/product2" class="cta">Buy Now</a>
-          </div>
+        <div class="carousel-inner">
+            <!-- 1. Cramberies Compact -->
+            <div class="carousel-item active">
+                <img src="https://imgs.search.brave.com/Dq9B2FYQq2dA4v-No6Y6dQX4g0jciL60AjkSa0QwzP4/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9tLm1l/ZGlhLWFtYXpvbi5j/b20vaW1hZ2VzL0kv/NjFOS1VSOHJwUEwu/anBn" alt="Cramberies Compact">
+                <h3>𝗖𝗿𝗮𝗺𝗯𝗲𝗿𝗶𝗲𝘀 𝗖𝗼𝗺𝗽𝗮𝗰𝘁</h3>
+                <p>Price: $9 | Chiclet, 75%</p>
+                <!-- Trigger modal for Cramberies Compact -->
+                <button class="btn-custom" data-bs-toggle="modal" data-bs-target="#modal1">Buy now</button>
+                <button class="btn-custom" onclick="location.href='#'">Add to cart</button>
+            </div>
+            <!-- 2. Carnotaurus 104 -->
+            <div class="carousel-item">
+                <img src="https://hyperx.com/cdn/shop/files/hyperx_alloy_core_rgb_us_1_main.jpg?v=1688318411" alt="Carnotaurus 104">
+                <h3>𝐂𝐚𝐫𝐧𝐨𝐭𝐚𝐮𝐫𝐮𝟏𝟎𝟰</h3>
+                <p>Price: $18 | Membrane, 100%</p>
+                <button class="btn-custom" data-bs-toggle="modal" data-bs-target="#modal2">Buy now</button>
+                <button class="btn-custom" onclick="location.href='#'">Add to cart</button>
+            </div>
+            <!-- 3. Esterpriste68 -->
+            <div class="carousel-item">
+                <img src="https://berserkeys.com.au/wp-content/uploads/2024/05/BK-YAL66GMTM-SVMK-Colours-2_1600_1600.webp" alt="Esterpriste68">
+                <h3>𝗘𝘀𝘁𝗲𝗿𝗽𝗿𝗶𝘀𝘁𝗲𝟲𝟴</h3>
+                <p>Price: $79 | Mechanical (Yellow Switch), 65%</p>
+                <button class="btn-custom" data-bs-toggle="modal" data-bs-target="#modal3">Buy now</button>
+                <button class="btn-custom" onclick="location.href='#'">Add to cart</button>
+            </div>
+            <!-- 4. Raptor K9 -->
+            <div class="carousel-item">
+                <img src="https://media.takealot.com/covers_images/0be5f6dd9b5e42fb9282c763ea8559c3/s-pdpxl.file" alt="Raptor K9">
+                <h3>𝗥𝗮𝗽𝘁𝗼𝗿 𝗞𝟵</h3>
+                <p>Price: $15 | Membrane, 60%</p>
+                <button class="btn-custom" data-bs-toggle="modal" data-bs-target="#modal4">Buy now</button>
+                <button class="btn-custom" onclick="location.href='#'">Add to cart</button>
+            </div>
+            <!-- 5. Ayodude75 -->
+            <div class="carousel-item">
+                <img src="https://m.media-amazon.com/images/I/71bdAeUFL+L.jpg" alt="Ayodude75">
+                <h3>𝗔𝘆𝗼𝗱𝘂𝗱𝗲𝟳𝟱</h3>
+                <p>Price: $119 | Mechanical (Purple Switch), 75%</p>
+                <button class="btn-custom" data-bs-toggle="modal" data-bs-target="#modal5">Buy now</button>
+                <button class="btn-custom" onclick="location.href='#'">Add to cart</button>
+            </div>
+            <!-- 6. WTF3485 -->
+            <div class="carousel-item">
+                <img src="https://genk.mediacdn.vn/2018/9/10/photo-1-15365720019761425975757.jpg" alt="WTF3485">
+                <h3>𝗪𝗧𝗙𝟯𝟰𝟴𝟱</h3>
+                <p>Price: $499 | Membrane, 100%</p>
+                <button class="btn-custom" data-bs-toggle="modal" data-bs-target="#modal6">Buy now</button>
+                <button class="btn-custom" onclick="location.href='#'">Add to cart</button>
+            </div>
         </div>
-
-        <div class="product">
-          <img
-            src="https://owlgaming.vn/wp-content/uploads/2023/11/ban-phim-co-glorious-gmmk2-95-full-size-pre-built-black.jpg"
-            alt="Keyboard 3"
-          />
-          <div class="product-details">
-            <h3>𝗟𝗨𝗖𝗜𝗗𝗔 𝟭𝟬𝟬</h3>
-            <p>Price: $60</p>
-            <p>Mechanical (Blue Switch), 100%</p>
-            <a href="https://example.com/product3" class="cta">Buy Now</a>
-          </div>
-        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#keyboardCarousel" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#keyboardCarousel" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+        </button>
       </div>
+    </div>
 
-      <div class="d-flex justify-content-center flex-wrap">
-        <div class="product">
-          <img
-            src="https://imgs.search.brave.com/Dq9B2FYQq2dA4v-No6Y6dQX4g0jciL60AjkSa0QwzP4/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9tLm1l/ZGlhLWFtYXpvbi5j/b20vaW1hZ2VzL0kv/NjFOS1VSOHJwUEwu/anBn"
-            alt="Arrango Compact Keyboard"
-          />
-          <div class="product-details">
-            <h3>𝗖𝗿𝗮𝗺𝗯𝗲𝗿𝗶𝗲𝘀 𝗖𝗼𝗺𝗽𝗮𝗰𝘁</h3>
-            <p>Price: $9</p>
-            <p>Chiclet, 75%</p>
-            <a
-              href="https://shopee.vn/B%C3%A0n-ph%C3%ADm-mini-K1000-c%E1%BB%95ng-USB-si%C3%AAu-m%E1%BB%8Fng-ch%E1%BB%91ng-n%C6%B0%E1%BB%9Bc-ch%E1%BB%91ng-%E1%BB%93n-cho-m%C3%A1y-t%C3%ADnh-Laptop-Mini-Keyboard-i.1117257690.28608700581?sp_atk=a4b29157-c338-42d6-bd14-d84d519a34bc&xptdk=a4b29157-c338-42d6-bd14-d84d519a34bc"
-              class="cta"
-              >Buy Now</a
-            >
+    <!-- Modals for Each Product -->
+    <!-- Modal 1: Cramberies Compact -->
+    <div class="modal fade" id="modal1" tabindex="-1" aria-labelledby="modal1Label" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered modal-lg">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="modal1Label">Cramberies Compact</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
           </div>
-        </div>
-
-        <div class="product">
-          <img
-            src="https://hyperx.com/cdn/shop/files/hyperx_alloy_core_rgb_us_1_main.jpg?v=1688318411"
-            alt="Carnotaurus 7881 Keyboard"
-          />
-          <div class="product-details">
-            <h3>𝗖𝗮𝗿𝗻𝗼𝘁𝗮𝘂𝗿𝘂𝘀𝟭𝟬𝟰</h3>
-            <p>Price: $18</p>
-            <p>Membrane, 100%</p>
-            <a
-              href="https://shopee.vn/B%C3%A0n-ph%C3%ADm-m%C3%A1y-t%C3%ADnh-c%C3%B3-d%C3%A2y-gaming-SIDOTECH-V4-gi%E1%BA%A3-c%C6%A1-ch%E1%BB%91ng-n%C6%B0%E1%BB%9Bc-led-rgb-ch%C6%A1i-game-l%C3%A0m-vi%E1%BB%87c-v%C4%83n-ph%C3%B2ng-cho-PC-laptop-i.268182642.20453645467?sp_atk=6781d560-cab1-49a7-99cf-20e7a54044ed&xptdk=6781d560-cab1-49a7-99cf-20e7a54044ed"
-              class="cta"
-              >Buy Now</a
-            >
+          <div class="modal-body">
+            <div class="container">
+              <div class="row g-4">
+                <div class="col-md-6">
+                  <img src="https://imgs.search.brave.com/Dq9B2FYQq2dA4v-No6Y6dQX4g0jciL60AjkSa0QwzP4/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9tLm1l/ZGlhLWFtYXpvbi5j/b20vaW1hZ2VzL0kv/NjFOS1VSOHJwUEwu/anBn" alt="Cramberies Compact">
+                </div>
+                <div class="col-md-6 d-flex flex-column justify-content-center">
+                  <h3>Cramberies Compact</h3>
+                  <p>explain it by your thoughts</p>
+                  <p>Type: Chiclet (scissors), 75%</p>
+                  <div class="price-section mb-3">
+                    <span class="fw-bold fs-4">$8.99</span>
+                    <span class="fs-5 text-muted text-decoration-line-through">$12.00</span>
+                  </div>
+                  <div class="buttons">
+                    <button class="btn btn-primary" onclick="location.href='#'">Buy now</button>
+                    <button class="btn btn-secondary" onclick="location.href='#'">Add to cart</button>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
-        </div>
-        <div class="product">
-          <img
-            src="https://i.redd.it/r0ffshd31az81.jpg"
-            alt="Angorayer80 Keyboard"
-          />
-          <div class="product-details">
-            <h3>𝗘𝘀𝘁𝗲𝗿𝗽𝗿𝗶𝘀𝘁𝗲𝟲𝟴</h3>
-            <p>Price: $85</p>
-            <p>Mechanical (Yellow Switch), 60%</p>
-            <a
-              href="https://shopee.vn/B%C3%A0n-ph%C3%ADm-c%C6%A1-AULA-f75-75-80-ph%C3%ADm-rgb-bluetooth-2.4g-chuy%C3%AAn-d%C3%B9ng-%C4%91%E1%BB%83-ch%C6%A1i-game-i.202843264.21395764158?sp_atk=7f5d3875-72e3-41e5-b939-b265a951c656&xptdk=7f5d3875-72e3-41e5-b939-b265a951c656"
-              class="cta"
-              >Buy Now</a
-            >
+          <div class="modal-footer">
+            <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">Close</button>
           </div>
         </div>
       </div>
     </div>
+
+    <!-- Modal 2: Carnotaurus 104 -->
+    <div class="modal fade" id="modal2" tabindex="-1" aria-labelledby="modal2Label" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered modal-lg">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="modal2Label">Carnotaurus 104</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <div class="container">
+              <div class="row g-4">
+                <div class="col-md-6">
+                  <img src="https://hyperx.com/cdn/shop/files/hyperx_alloy_core_rgb_us_1_main.jpg?v=1688318411" alt="Carnotaurus 104">
+                </div>
+                <div class="col-md-6 d-flex flex-column justify-content-center">
+                  <h3>Carnotaurus 104</h3>
+                  <p>explain it by your thoughts</p>
+                  <p>Type: Membrane, 100%</p>
+                  <div class="price-section mb-3">
+                    <span class="fw-bold fs-4">$17.99</span>
+                    <span class="fs-5 text-muted text-decoration-line-through">$22.00</span>
+                  </div>
+                  <div class="buttons">
+                    <button class="btn btn-primary" onclick="location.href='#'">Buy now</button>
+                    <button class="btn btn-secondary" onclick="location.href='#'">Add to cart</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">Close</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Modal 3: Esterpriste68 -->
+    <div class="modal fade" id="modal3" tabindex="-1" aria-labelledby="modal3Label" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered modal-lg">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="modal3Label">Esterpriste68</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <div class="container">
+              <div class="row g-4">
+                <div class="col-md-6">
+                  <img src="https://berserkeys.com.au/wp-content/uploads/2024/05/BK-YAL66GMTM-SVMK-Colours-2_1600_1600.webp" alt="Esterpriste68">
+                </div>
+                <div class="col-md-6 d-flex flex-column justify-content-center">
+                  <h3>Esterpriste68</h3>
+                  <p>explain it by your thoughts</p>
+                  <p>Type: Mechanical (Yellow Switch), 65%</p>
+                  <div class="price-section mb-3">
+                    <span class="fw-bold fs-4">$78.99</span>
+                    <span class="fs-5 text-muted text-decoration-line-through">$90.00</span>
+                  </div>
+                  <div class="buttons">
+                    <button class="btn btn-primary" onclick="location.href='#'">Buy now</button>
+                    <button class="btn btn-secondary" onclick="location.href='#'">Add to cart</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">Close</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Modal 4: Raptor K9 -->
+    <div class="modal fade" id="modal4" tabindex="-1" aria-labelledby="modal4Label" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered modal-lg">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="modal4Label">Raptor K9</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <div class="container">
+              <div class="row g-4">
+                <div class="col-md-6">
+                  <img src="https://media.takealot.com/covers_images/0be5f6dd9b5e42fb9282c763ea8559c3/s-pdpxl.file" alt="Raptor K9">
+                </div>
+                <div class="col-md-6 d-flex flex-column justify-content-center">
+                  <h3>Raptor K9</h3>
+                  <p>explain it by your thoughts</p>
+                  <p>Type: Membrane, 60%</p>
+                  <div class="price-section mb-3">
+                    <span class="fw-bold fs-4">$14.99</span>
+                    <span class="fs-5 text-muted text-decoration-line-through">$20.00</span>
+                  </div>
+                  <div class="buttons">
+                    <button class="btn btn-primary" onclick="location.href='#'">Buy now</button>
+                    <button class="btn btn-secondary" onclick="location.href='#'">Add to cart</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">Close</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Modal 5: Ayodude75 -->
+    <div class="modal fade" id="modal5" tabindex="-1" aria-labelledby="modal5Label" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered modal-lg">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="modal5Label">Ayodude75</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <div class="container">
+              <div class="row g-4">
+                <div class="col-md-6">
+                  <img src="https://m.media-amazon.com/images/I/71bdAeUFL+L.jpg" alt="Ayodude75">
+                </div>
+                <div class="col-md-6 d-flex flex-column justify-content-center">
+                  <h3>Ayodude75</h3>
+                  <p>explain it by your thoughts</p>
+                  <p>Type: Mechanical (Purple Switch), 75%</p>
+                  <div class="price-section mb-3">
+                    <span class="fw-bold fs-4">$118.99</span>
+                    <span class="fs-5 text-muted text-decoration-line-through">$150.00</span>
+                  </div>
+                  <div class="buttons">
+                    <button class="btn btn-primary" onclick="location.href='#'">Buy now</button>
+                    <button class="btn btn-secondary" onclick="location.href='#'">Add to cart</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">Close</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Modal 6: WTF3485 -->
+    <div class="modal fade" id="modal6" tabindex="-1" aria-labelledby="modal6Label" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered modal-lg">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="modal6Label">WTF3485</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <div class="container">
+              <div class="row g-4">
+                <div class="col-md-6">
+                  <img src="https://genk.mediacdn.vn/2018/9/10/photo-1-15365720019761425975757.jpg" alt="WTF3485">
+                </div>
+                <div class="col-md-6 d-flex flex-column justify-content-center">
+                  <h3>WTF3485</h3>
+                  <p>explain it by your thoughts</p>
+                  <p>Type: Membrane, 100%</p>
+                  <div class="price-section mb-3">
+                    <span class="fw-bold fs-4">$499.00</span>
+                    <span class="fs-5 text-muted text-decoration-line-through">$599.00</span>
+                  </div>
+                  <div class="buttons">
+                    <button class="btn btn-primary" onclick="location.href='#'">Buy now</button>
+                    <button class="btn btn-secondary" onclick="location.href='#'">Add to cart</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">Close</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
     <div class="container">
-      <footer
-        class="row row-cols-1 row-cols-sm-2 row-cols-md-5 py-5 my-5 border-top"
-      >
+      <footer class="row row-cols-1 row-cols-sm-2 row-cols-md-5 py-5 my-5 border-top">
         <div class="col mb-3">
           <p class="text-light-emphasis">Keyboard Types © 2024</p>
+          <img src="https://png.pngtree.com/png-vector/20240913/ourmid/pngtree-vector-notebook-keyboard-that-came-with-the-keyboard-png-image_13213242.png" alt="Logo" width="80px" height="auto">
         </div>
-
         <div class="col mb-3"></div>
         <div class="col mb-3"></div>
         <div class="col mb-3"></div>
-
         <div class="col mb-3">
-          <h5>Sections:</h5>
+          <h5>𝗦𝗲𝗰𝘁𝗶𝗼𝗻𝘀:</h5>
           <ul class="nav flex-column">
             <li class="nav-item mb-2">
               <a href="oh.html" class="nav-link p-0 text-light-emphasis">Home</a>
@@ -433,9 +704,58 @@
             </li>
           </ul>
         </div>
+      </footer>
+    </div>
+    
+    <!-- Back to Header Button -->
+    <img
+      id="backToTop"
+      src="https://www.freeiconspng.com/uploads/sign-up-button-icon-26.png"
+      alt="Back to Header"
+    />
 
-       
-
+    <!-- Dark Mode Toggle Icon -->
+    <div id="darkModeToggle" class="text-center">
+      <img
+        id="toggleIcon"
+        src="https://matthewcassinelli.com/wp-content/uploads/shortcut-toggle-dark-mode-icon.webp"
+        alt="Toggle Dark Mode"
+      />
+    </div>
+    
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+      // Back to Header functionality
+      const backToTop = document.getElementById('backToTop');
+      function checkScroll() {
+        if (window.scrollY > 100) {
+          backToTop.style.display = 'block';
+        } else {
+          backToTop.style.display = 'none';
+        }
+      }
+      window.addEventListener('scroll', checkScroll);
+      backToTop.addEventListener('click', function() {
+        document.getElementById('header').scrollIntoView({ behavior: 'smooth' });
+      });
+      
+      document.querySelectorAll('.btn-custom').forEach(function(btn) {
+        btn.addEventListener('click', function() {
+          window.location.href = this.getAttribute('data-href');
+        });
+      });
+      
+      // Dark Mode Toggle functionality
+      const toggleIcon = document.getElementById('toggleIcon');
+      toggleIcon.addEventListener('click', function() {
+        if(document.body.classList.contains('light-mode')) {
+          document.body.classList.remove('light-mode');
+          this.src = 'https://matthewcassinelli.com/wp-content/uploads/shortcut-toggle-dark-mode-icon.webp';
+        } else {
+          document.body.classList.add('light-mode');
+          this.src = 'https://matthewcassinelli.com/wp-content/uploads/shortcut-toggle-dark-mode-icon.webp';
+        }
+      });
+    </script>
   </body>
 </html>

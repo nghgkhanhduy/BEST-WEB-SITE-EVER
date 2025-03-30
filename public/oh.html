@@ -272,7 +272,55 @@
       .carousel-indicators {
           bottom: -40px;
       }
+
+      .account-button{
+        display: flex;
+        gap: 20px;
+      }
+
+
+
+
+            /* Product Card Styling */
+      .product-card {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 10px;
+        background-color: #f8f9fa;
+        border-radius: 10px;
+      }
+
+      /* Ensuring the product image fits well */
+      .product-image {
+        width: 100%;
+        height: auto;
+        object-fit: cover;
+      }
+
+      /* Price Section */
+      .price-section {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+      }
+
+      /* Buttons Flex Layout */
+      .buttons {
+        display: flex;
+        gap: 10px;
+      }
+
+      /* Modal image styling if needed */
+      .modal-body img {
+        max-width: 100%;
+        height: auto;
+        object-fit: cover;
+        border-radius: 10px;
+      }
+
+
     </style>
+
   </head>
 
   <body>
@@ -294,12 +342,15 @@
             <li class="nav-item"><a class="nav-link" href="404.html">Options</a></li>
             <li class="nav-item"><a class="nav-link" href="404.html">Others</a></li>
             <li class="nav-item"><a class="nav-link" href="404.html">Help</a></li>
-            <li class="nav-item">
+            <li class="nav-item"><a class="nav-link" href="404.html"> </a></li>
+            <div class="account-button">
+            <span class="nav-item">
               <a class="nav-link login-button" href="login.html">Login</a>
-            </li>
-            <li class="nav-item">
+            </span>
+            <span class="nav-item">
               <a class="nav-link login-button" href="register.html">Sign up</a>
-            </li>
+            </span>
+          </div>
           </ul>
         </div>
       </div>
@@ -368,9 +419,9 @@
 
     <div class="section">
       <p>
-        Thank you for reading! I hope you now know which type of keyboard will be suitable for your needs.
+        Congratulations on reaching the end of our comprehensive keyboard guide! Armed with this knowledge, you're now well-equipped to select a keyboard that aligns perfectly with your unique needs and preferences.
       </p>
-      <p>Here are some recommended keyboards to buy:</p>
+      <p> To assist you further, here are some top-rated keyboards that cater to various requirements:</p>
       <div id="keyboardCarousel" class="carousel slide" data-bs-ride="carousel" data-bs-touch="true">
         <div class="carousel-indicators">
             <button type="button" data-bs-target="#keyboardCarousel" data-bs-slide-to="0" class="active" aria-label="Slide 1"></button>

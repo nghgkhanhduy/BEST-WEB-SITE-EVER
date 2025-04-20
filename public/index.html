@@ -24,7 +24,7 @@
         align-items: center;
         justify-content: center;
         font-family: 'Arial', sans-serif;
-        padding-top: 56px; /* Prevent overlap with fixed navbar */
+        padding-top: 56px; 
         transition: background-color 0.3s, color 0.3s;
       }
       
@@ -44,7 +44,19 @@
         color: #ffffff;
         box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
       }
-      
+      header p {
+        font-family: Arial, sans-serif;
+        font-size: 1.2em;
+        color: #dddddd;
+        animation: glowing-stroke 5s infinite;
+        background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
+        display: inline-block;
+        padding: 2px 10px;
+        border-radius: 5px;
+        backdrop-filter: blur(8px); /* Blur effect */
+        -webkit-backdrop-filter: blur(8px); /* For Safari */
+      }
+            
       body.light-mode header {
         background: url("https://i.ytimg.com/vi/XCGgBdHpQZw/hq720.jpg?sqp=-oaymwEhCK4FEIIDSFryq4qpAxMIARUAAAAAGAElAADIQj0AgKJD&rs=AOn4CLBxl3qs4s2qGRt61gX_i0jZMRiNYg")
           no-repeat center center/cover;
@@ -320,14 +332,17 @@
     </nav>
     
     <header id="header">
-      <p>​</p>
+      <p>ㅤ​</p>
+      <p>ㅤ​</p>
       <h1>ALL ABOUT PHYSICAL KEYBOARD</h1>
       <p> ​</p>
       <p>Keyboards come in various styles, each catering to different user preferences</p>
       <p>and needs. Each type has its unique advantages, making the choice largely</p>
       <p>dependent on personal preference and specific use cases.</p>
       <p>Explore the different types of keyboards: Chicklet, Membrane, and Mechanical.</p>
-      <p>​</p>
+      <div>
+        <p>.............​</p>
+      </div>
     </header>
 
     <!-- Sections for keyboard types -->
@@ -374,8 +389,6 @@
         alt="Mechanical Keyboard"
       />
     </div>
-
-    <!-- Carousel for Recommended Keyboards -->
     <div class="section">
       <p>
         Thank you for reading! I hope you now know which type of keyboard will be suitable for your needs.

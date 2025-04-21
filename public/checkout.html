@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Checkout</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+</head>
+
+<body>
+  <div class="container mt-5">
+    <h1>Checkout</h1>
+    <div id="checkout-details" class="mt-4">
+      <!-- Checkout details will be dynamically added here -->
+    </div>
+    <button id="pay-now" class="btn btn-success mt-3">Pay Now</button>
+  </div>
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      const checkoutDetails = document.getElementById('checkout-details');
+      const cart = JSON.parse(localStorage.getItem('cart')) || [];
+
+      if (cart.length === 0) {
+        checkoutDetails.innerHTML = '<p>Your cart is empty.</p>';
+      } else {
+        const totalPrice = cart.reduce((sum, item) => sum + item.price * item.quantity, 0);
+        checkoutDetails.innerHTML = `
+          <h3>Total: $${totalPrice.toFixed(2)}</h3>
+          <p>Thank you for shopping with us!</p>
+        `;
+      }
+
+      // Clear cart and show confirmation on "Pay Now"
+      document.getElementById('pay-now').addEventListener('click', function () {
+        localStorage.removeItem('cart');
+        alert('Payment successful! Thank you for your purchase.');
+        window.location.href = 'index.html';
+      });
+    });
+  </script>
+</body>
+
+</html>
